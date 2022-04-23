@@ -1,16 +1,23 @@
 *{
   margin: 0px;
   padding: 0px;
+  text-align: center;
+  color: sienna;
 }
 body{
   background-color: rgb(223, 254, 255);
 }
 
 .pp{
+  float:inline-start;
   width: 100px;
   height: 50px;
   position: relative;
   display: inline-block;
+}
+
+h1{
+  text-align: center;
 }
 
 p {
