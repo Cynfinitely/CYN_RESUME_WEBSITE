@@ -8,16 +8,30 @@ body{
   background-color: rgb(223, 254, 255);
 }
 
+a:link{
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover{
+  color: cornflowerblue;
+  background-color: darkcyan;
+  text-decoration: underline;
+}
+
+.intro{
+  background-image:url('/My_Cv_Website/images/intro_bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 .pp{
   float:inline-start;
   width: 100px;
   height: 50px;
   position: relative;
   display: inline-block;
-}
-
-h1{
-  text-align: center;
 }
 
 p {
