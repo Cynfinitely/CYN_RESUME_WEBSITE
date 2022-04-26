@@ -1,6 +1,4 @@
 *{
-  margin: 0px;
-  padding: 0px;
   text-align: center;
   color: sienna;
 }
@@ -27,9 +25,8 @@ a:hover{
 }
 
 .pp{
+  box-sizing: border-box;
   float:inline-start;
-  width: 100px;
-  height: 50px;
   position: relative;
   display: inline-block;
 }
