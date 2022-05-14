@@ -18,10 +18,15 @@ a:hover{
 }
 
 .intro{
-  background-image:url('/My_Cv_Website/images/intro_bg.jpg');
+  /* /! background-image:url('/My_Cv_Website/images/intro_bg.jpg'); /
+  /!background-color: rgb(213, 214, 215); */ 
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+}
+.intro h1{
+  background-size: ;
+  text-align: left
 }
 
 .pp{
