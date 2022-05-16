@@ -1,33 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
+
 *{
-  text-align: center;
-  color: sienna;
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+  font-family: 'Macondo', cursive;
+  font-size: 20px;
 }
 body{
   background-color: rgb(223, 254, 255);
 }
 
-a:link{
-  color: black;
+/*Intro*/
+
+.intro{
   background-color: transparent;
+  border: none;
+  border-style: hidden;
+  box-shadow: none;
+  display:flex;
+}
+
+.intro h1{
+  text-align: left
+  padding-bottom:0rem;
+}
+
+.intro nav{
+  float: right;
+  padding: 1rem;
+}
+
+.intro nav button{
+  border: none;
+  border-style: hidden;
+  box-shadow: none;
+}
+
+.intro a:link{
   text-decoration: none;
+  background-color: #ffff;
+  padding: 1rem;
+  box-shadow: -5px -5px 12px #ffff,
+                    5px 5px 4px sienna; 
 }
 a:hover{
-  color: cornflowerblue;
-  background-color: darkcyan;
   text-decoration: underline;
 }
 
-.intro{
-  /* /! background-image:url('/My_Cv_Website/images/intro_bg.jpg'); /
-  /!background-color: rgb(213, 214, 215); */ 
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-}
-.intro h1{
-  background-size: ;
-  text-align: left
-}
+
+/*Profile presentations*/
 
 .pp{
   box-sizing: border-box;
@@ -36,8 +58,12 @@ a:hover{
   display: inline-block;
 }
 
-p {
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    font-size: 20px;
-    text-decoration: dotted;
-  }
+div{
+  background-color:#ffff;
+  margin-left: 10rem;
+  margin-right: 10rem;
+  border-style:none;
+  margin-bottom: 5rem;
+  padding: auto;
+  box-shadow:5px 4px 4px sienna;             
+}
