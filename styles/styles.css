@@ -18,6 +18,7 @@ body{
   border: none;
   border-style: hidden;
   box-shadow: none;
+  width:auto;
   display:flex;
 }
 
@@ -27,7 +28,7 @@ body{
 }
 
 .intro nav{
-  float: right;
+  justify-content: right;
   padding: 1rem;
 }
 
