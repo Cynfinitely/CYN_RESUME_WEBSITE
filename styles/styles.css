@@ -3,9 +3,8 @@
 *{
   margin: 0;
   padding: 0;
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
   font-family: 'Macondo', cursive;
-  font-size: 20px;
 }
 body{
   background-color: rgb(223, 254, 255);
@@ -23,8 +22,8 @@ body{
 }
 
 .intro h1{
-  text-align: left
-  padding-bottom:0rem;
+  text-align: left;
+  padding-bottom: 0rem;
 }
 
 .intro nav{
