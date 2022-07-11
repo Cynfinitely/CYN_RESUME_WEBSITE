@@ -7,8 +7,10 @@
   box-sizing: border-box;
   font-family: 'Work Sans', sans-serif;
 }
-.container{
 
+h1{
+  color: white;
+  text-shadow: 2px 2px black;
 }
 .stomp{
   font-size: 7vw;
@@ -27,17 +29,22 @@
   background-color: #AEB9F2;
 }
 
+.col-11{
+  text-align: center;
+}
+
 .about{
   height: 25vh;
   background-color: #F0F2F2;
 }
 
 .projects{
-  height: 50vh;
+  height: 60vh;
   background-color: #BDD9F2;
 }
 
 .contact{
-  height: 25vh;
+  height: 15vh;
   background-color: #A7BDD9;
 }
+
