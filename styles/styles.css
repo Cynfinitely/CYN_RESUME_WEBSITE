@@ -1,69 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Macondo', cursive;
+  font-family: 'Work Sans', sans-serif;
 }
-body{
-  background-color: rgb(223, 254, 255);
+.container{
+
 }
-
-/*Intro*/
-
-.intro{
-  background-color: transparent;
-  border: none;
-  border-style: hidden;
-  box-shadow: none;
-  width:auto;
-  display:flex;
+.stomp{
+  font-size: 7vw;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
 }
-
-.intro h1{
-  text-align: left;
-  padding-bottom: 0rem;
+#name{
+  font-size: 2vw;
+  writing-mode: horizontal-tb;
 }
-
-.intro nav{
-  justify-content: right;
-  padding: 1rem;
+.sign{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #AEB9F2;
 }
 
-.intro nav button{
-  border: none;
-  border-style: hidden;
-  box-shadow: none;
+.about{
+  height: 25vh;
+  background-color: #F0F2F2;
 }
 
-.intro a:link{
-  text-decoration: none;
-  background-color: #ffff;
-  padding: 1rem;
-  box-shadow: -5px -5px 12px #ffff,
-                    5px 5px 4px sienna; 
-}
-a:hover{
-  text-decoration: underline;
+.projects{
+  height: 50vh;
+  background-color: #BDD9F2;
 }
 
-
-/*Profile presentations*/
-
-.pp{
-  box-sizing: border-box;
-  float:inline-start;
-  position: relative;
-  display: inline-block;
-}
-
-div{
-  background-color:#ffff;
-  margin-left: 10rem;
-  margin-right: 10rem;
-  border-style:none;
-  margin-bottom: 5rem;
-  padding: auto;
-  box-shadow:5px 4px 4px sienna;             
+.contact{
+  height: 25vh;
+  background-color: #A7BDD9;
 }
