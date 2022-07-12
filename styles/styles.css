@@ -34,17 +34,22 @@ h1{
 }
 
 .about{
-  height: 10vh;
+  height: 15vh;
   background-color: #F0F2F2;
 }
 
 .projects{
-  height: 80vh;
+  height: 70vh;
   background-color: #BDD9F2;
 }
 
 .contact{
-  height: 10vh;
+  height: 15vh;
   background-color: #A7BDD9;
 }
 
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev{
+    display:block;
+}
