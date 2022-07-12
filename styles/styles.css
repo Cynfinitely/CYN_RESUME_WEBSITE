@@ -34,17 +34,17 @@ h1{
 }
 
 .about{
-  height: 25vh;
+  height: 10vh;
   background-color: #F0F2F2;
 }
 
 .projects{
-  height: 60vh;
+  height: 80vh;
   background-color: #BDD9F2;
 }
 
 .contact{
-  height: 15vh;
+  height: 10vh;
   background-color: #A7BDD9;
 }
 
