@@ -34,12 +34,13 @@ h1{
 }
 
 .about{
-  height: 15vh;
+  height: 25vh;
   background-color: #F0F2F2;
 }
 
+
 .projects{
-  height: 70vh;
+  height: 60vh;
   background-color: #BDD9F2;
 }
 
@@ -47,9 +48,24 @@ h1{
   height: 15vh;
   background-color: #A7BDD9;
 }
+.carousel-slide{
+  display: inline-block;
+  float: left;
+}
+
+.carousel-inner{
+  display: block;
+}
 
 .carousel-item.active,
 .carousel-item-next,
 .carousel-item-prev{
     display:block;
+
+}
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(100%);
 }
