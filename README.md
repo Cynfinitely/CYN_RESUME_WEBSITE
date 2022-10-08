@@ -1,4 +1,3 @@
-
 Hi!
 My name is Celal Yasin Nari and I am junior front-end developer. This website is very special to me because it is my resume website.
 
@@ -6,7 +5,7 @@ My name is Celal Yasin Nari and I am junior front-end developer. This website is
 
 - [ ] About Filling
 - [ ] Projects design
-- [ ] Projects resposnsive
+- [ ] Projects responsive
 - [ ] Contact me content
 - [ ] General Design
 - [ ] Projects Carousel
