@@ -1,11 +1,10 @@
-Hi!
-My name is Celal Yasin Nari and I am junior front-end developer. This website is very special to me because it is my resume website.
+# Welcome to the my resume website
 
-### ToDos
 
-- [ ] About Filling
-- [ ] Projects design
-- [ ] Projects responsive
-- [ ] Contact me content
-- [ ] General Design
-- [ ] Projects Carousel
+## ToDos
+
+
+## Dones
+
+- [x] react , typescript , tailwind installed
+ 
