@@ -3,13 +3,10 @@ import logo from "../img/logo.png";
 
 const Footer = () => {
   return (
-    <div className="footer bg-grain">
+    <div className="footer bg-[#ebd9b4]">
       <div className="lg:flex justify-center lg:justify-start">
         <div className="w-full lg:flex-auto flex items-center pl-6 p-4 sm:space-x-10 justify-center lg:justify-start">
-          <a
-            href="https://github.com/Cynfinitely"
-            className=" sm:block hidden"
-          >
+          <a href="https://github.com/Cynfinitely" className=" sm:block hidden">
             <img src={logo} alt="logo" className="object-cover h-24 w-72" />
           </a>
           <nav className="w-full flex space-x-6 lg:space-x-4 uppercase font-benton text-main lg:items-start lg:justify-start items-center justify-center text-sm">
