@@ -1,10 +1,9 @@
 import React from "react";
 import logo from "../img/logo.png";
-import g1 from "../img/g1.png";
 
 const Footer = () => {
   return (
-    <div className="footer bg-[#ebd9b4] ">
+    <div className="footer bg-[#e1efc7] ">
       <div className="lg:flex justify-center lg:justify-start">
         <div className="w-full lg:flex-auto flex items-center pl-6 p-4 sm:space-x-10 justify-center lg:justify-start">
           <a href="https://github.com/Cynfinitely" className=" sm:block hidden">
@@ -53,33 +52,7 @@ const Footer = () => {
               target="_blank"
               className="group min-w-[300px] text-cream text-2xl font-editorial pt-1 relative h-[48px] rounded-2xl bg-main w-full flex items-center justify-center px-4 flex-shrink-0"
             >
-              <svg
-                className="-mt-1 group-hover:running animate-spin pause"
-                width="12"
-                height="12"
-                viewBox="0 0 12 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1.32029 6.01315C3.4653 5.21566 5.15556 3.47263 5.98393 1.32787C6.76259 3.47069 8.44806 5.20673 10.6285 6.00608C8.50531 6.81309 6.83388 8.54857 6.01315 10.6797C5.21472 8.53217 3.46852 6.84046 1.32029 6.01315Z"
-                  stroke="#E7E2D8"
-                ></path>
-              </svg>
               <span className="flex-1 text-center px-4">View on OpenSea</span>
-              <svg
-                className="-mt-1 group-hover:running animate-spin pause"
-                width="12"
-                height="12"
-                viewBox="0 0 12 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1.32029 6.01315C3.4653 5.21566 5.15556 3.47263 5.98393 1.32787C6.76259 3.47069 8.44806 5.20673 10.6285 6.00608C8.50531 6.81309 6.83388 8.54857 6.01315 10.6797C5.21472 8.53217 3.46852 6.84046 1.32029 6.01315Z"
-                  stroke="#E7E2D8"
-                ></path>
-              </svg>
             </a>
           </div>
         </div>

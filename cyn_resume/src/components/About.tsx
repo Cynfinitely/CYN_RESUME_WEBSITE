@@ -14,7 +14,7 @@ const About = () => {
     <div className="w-full">
       <>
         <button className="btn1 w-full" type="button" onClick={handleOpenModal}>
-          About
+          About Me
         </button>
         <AnimatePresence>
           {showModal && (
