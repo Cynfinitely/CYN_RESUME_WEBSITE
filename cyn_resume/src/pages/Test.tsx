@@ -15,15 +15,8 @@ const Test = () => {
 
   return (
     <div>
-      <button className="bg-indigo-500 rounded-tl-full rounded-br-full text-white text-xs text-center self-center px-4 py-2 m-2">
-        Button
-      </button>
-      <button className="bg-indigo-500 rounded-bl-full rounded-tr-full text-white text-xs text-center self-center px-4 py-2 m-2">
-        Button
-      </button>
-
       <button
-        className="cd-button cd-modal-trigger btn1"
+        className=" btn1"
         onClick={handleOpenModal}
       >
         Open Modal

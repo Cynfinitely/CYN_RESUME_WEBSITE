@@ -11,9 +11,9 @@ const About = () => {
     setShowModal(false);
   };
   return (
-    <div>
+    <div className="w-full">
       <>
-        <button className="btn1" type="button" onClick={handleOpenModal}>
+        <button className="btn1 w-full" type="button" onClick={handleOpenModal}>
           About
         </button>
         <AnimatePresence>

@@ -42,9 +42,9 @@ const Footer = () => {
             </a>
           </nav>
         </div>
-        <div className="pointer-events-none lg:block hidden max-w-[4000px] absolute bottom-0 left-1/2 transform -translate-x-1/2 ">
+        {/* <div className="pointer-events-none lg:block hidden max-w-[4000px] absolute bottom-0 left-1/2 transform -translate-x-1/2 ">
           <img src={g1} className="" />
-        </div>
+        </div> */}
         <div className="lg:flex-1 lg:flex items-center px-4 pb-2 lg:px-0 justify-center lg:justify-end lg:pr-4 lg:py-2 text-right">
           <div className="hidden lg:block xl:hidden"></div>
           <div>
