@@ -1,9 +1,10 @@
 import React from "react";
 import logo from "../img/logo.png";
+import g1 from "../img/g1.png";
 
 const Footer = () => {
   return (
-    <div className="footer bg-[#ebd9b4]">
+    <div className="footer bg-[#ebd9b4] ">
       <div className="lg:flex justify-center lg:justify-start">
         <div className="w-full lg:flex-auto flex items-center pl-6 p-4 sm:space-x-10 justify-center lg:justify-start">
           <a href="https://github.com/Cynfinitely" className=" sm:block hidden">
@@ -41,8 +42,8 @@ const Footer = () => {
             </a>
           </nav>
         </div>
-        <div className="pointer-events-none lg:block hidden max-w-[205px] absolute bottom-0 left-1/2 transform -translate-x-1/2 aspect-square">
-          <img src={logo} className="" />
+        <div className="pointer-events-none lg:block hidden max-w-[4000px] absolute bottom-0 left-1/2 transform -translate-x-1/2 ">
+          <img src={g1} className="" />
         </div>
         <div className="lg:flex-1 lg:flex items-center px-4 pb-2 lg:px-0 justify-center lg:justify-end lg:pr-4 lg:py-2 text-right">
           <div className="hidden lg:block xl:hidden"></div>

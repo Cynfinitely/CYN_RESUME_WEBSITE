@@ -1,11 +1,8 @@
-
+import "./modal.css";
 
 const MyModal = () => {
- 
-
   return (
     <div>
-      
     </div>
   );
 };

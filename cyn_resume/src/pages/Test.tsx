@@ -14,9 +14,16 @@ const Test = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div>
+      <button className="bg-indigo-500 rounded-tl-full rounded-br-full text-white text-xs text-center self-center px-4 py-2 m-2">
+        Button
+      </button>
+      <button className="bg-indigo-500 rounded-bl-full rounded-tr-full text-white text-xs text-center self-center px-4 py-2 m-2">
+        Button
+      </button>
+
       <button
-        className="cd-button cd-modal-trigger bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        className="cd-button cd-modal-trigger btn1"
         onClick={handleOpenModal}
       >
         Open Modal
@@ -24,13 +31,12 @@ const Test = () => {
       <AnimatePresence>
         {showModal && (
           <motion.div
-            className="cd-transition-layer visible opening"
+            className="visible opening"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6 }}
           >
-
             <div className="cd-transition-background" />
             <div className="cd-modal visible">
               <div className="modal-content">
@@ -81,6 +87,9 @@ const Test = () => {
               <button className="modal-close" onClick={handleCloseModal}>
                 Close Modal
               </button>
+            </div>
+            <div className="cd-transition-layer">
+              <div className="bg-layer"></div>
             </div>
           </motion.div>
         )}

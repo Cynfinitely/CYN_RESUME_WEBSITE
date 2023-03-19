@@ -8,9 +8,9 @@ import Test from "./Test";
 
 const Home = () => {
   return (
-    <div>
+    <div className="flex flex-col grow w-screen" >
       {" "}
-      <div>
+      <div className="flex flex-row items-center justify-center h-full">
         {" "}
         <Test/>
         <MyModal />
@@ -18,7 +18,6 @@ const Home = () => {
         <Projects />
         <Skills />
       </div>
-      <Footer />
     </div>
   );
 };
