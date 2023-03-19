@@ -13,8 +13,13 @@ const About = () => {
   return (
     <div className="w-full">
       <>
-        <button className="btn1 w-full" type="button" onClick={handleOpenModal}>
-          About Me
+        <button
+          className="btn1 w-full mb-4"
+          type="button"
+          onClick={handleOpenModal}
+        >
+          <span > About Me</span>
+         
         </button>
         <AnimatePresence>
           {showModal && (
@@ -31,46 +36,59 @@ const About = () => {
                   <h1>About Me</h1>
 
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
-                    modi repellendus, optio eveniet eligendi molestiae? Fugiat,
-                    temporibus! A rerum pariatur neque laborum earum, illum
-                    voluptatibus eum voluptatem fugiat, porro animi tempora? Sit
-                    harum nulla, nesciunt molestias, iusto aliquam aperiam est
-                    qui possimus reprehenderit ipsam ea aut assumenda inventore
-                    iste! Animi quaerat facere repudiandae earum quisquam
-                    accusamus tempora, delectus nesciunt, provident quae
-                    aliquam, voluptatum beatae quis similique in maiores
-                    repellat eligendi voluptas veniam optio illum vero! Eius,
-                    dignissimos esse eligendi veniam.
-                  </p>
-
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Debitis saepe amet sit fugit rerum, corporis minus vitae
-                    officia quaerat incidunt voluptate, blanditiis ea est
-                    quibusdam voluptas animi quasi totam magni, commodi
-                    praesentium. Possimus quam illo ipsam iste unde totam
-                    cupiditate deleniti, impedit assumenda hic eligendi natus
-                    tempora dolores quod mollitia ab non sunt eaque adipisci,
-                    suscipit quas aliquid officiis beatae. Necessitatibus
-                    voluptatibus, perferendis tenetur perspiciatis adipisci
-                    nesciunt eum ex fuga commodi iure numquam enim rem ullam
-                    labore nisi magni sint voluptatem quos! Eum iure
-                    exercitationem voluptates repellendus culpa doloremque
-                    laborum animi illum, sint fugit soluta possimus a fuga
-                    veritatis molestias corporis placeat illo pariatur dolor
-                    reiciendis earum, sapiente omnis. Placeat maiores omnis,
-                    porro officia, laborum eos. Fugiat mollitia inventore
-                    consequuntur odit eaque, rerum recusandae, eum sint
-                    molestiae consequatur culpa deserunt quae aliquid dolor
-                    tempora tenetur architecto repellendus enim quasi atque,
-                    odio voluptas. Tenetur repellendus explicabo ipsum inventore
-                    quia aut eos expedita necessitatibus asperiores blanditiis!
-                    Delectus nisi laudantium ipsum! Quasi blanditiis corrupti
-                    dicta maiores placeat laboriosam delectus ipsum facere
-                    voluptas, magnam voluptatibus, perferendis alias ullam
-                    saepe, perspiciatis recusandae voluptates, dolores
-                    praesentium?
+                    Celal Yasin Nari is a seasoned professional in software
+                    development and project management. He has a strong
+                    background in full-stack web development, which includes
+                    expertise in programming languages like Java, JavaScript,
+                    and Python. Celal is passionate about technology and is
+                    always keeping himself up-to-date with the latest industry
+                    trends. Over the years, Celal has been involved in designing
+                    and implementing complex systems, leading cross-functional
+                    teams, and delivering successful projects on time and within
+                    budget.
+                    <p>
+                      His experience in project management is reflected in his
+                      ability to manage projects from ideation to execution
+                      while keeping a keen eye on the bottom line. Celal's
+                      skills are not limited to technical abilities alone. He
+                      possesses excellent communication skills and works
+                      exceptionally well with others. He is known for his
+                      proactive problem-solving skills, which he attributes to
+                      his experience in working in fast-paced and challenging
+                      environments.{" "}
+                    </p>
+                    <p>
+                      {" "}
+                      Celal thrives on challenges, and his ability to manage
+                      multiple tasks and deliver exceptional results has been
+                      one of his key attributes. His expertise in project
+                      management extends beyond just delivering projects within
+                      budget and time. He has a knack for working with diverse
+                      teams and has developed an impressive track record in
+                      fostering collaboration and communication within teams,
+                      leading to improved productivity, employee satisfaction,
+                      and better results.
+                    </p>
+                    <p>
+                      {" "}
+                      Celal is also passionate about mentoring and coaching
+                      junior developers. He believes in creating a learning
+                      environment where everyone can improve their skills and
+                      grow as professionals. His ability to teach complex
+                      concepts in simple terms has made him an invaluable mentor
+                      to many young developers.{" "}
+                    </p>
+                    <p>
+                      In summary, Celal Yasin Nari is a dynamic and
+                      results-driven professional with a passion for technology
+                      and a wealth of experience in software development and
+                      project management. He is an exceptional leader,
+                      communicator, and problem solver who excels in fast-paced
+                      and challenging environments. Celal's ability to work
+                      collaboratively with teams, coupled with his expertise in
+                      technical and project management skills, makes him an
+                      asset to any organization he works with.
+                    </p>
                   </p>
                 </div>
                 <button className="modal-close" onClick={handleCloseModal}>

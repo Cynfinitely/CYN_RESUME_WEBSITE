@@ -14,13 +14,13 @@ const Test = () => {
   };
 
   return (
-    <div>
+    <div className="w-full">
 
       <button
-        className=" btn1"
+        className=" btn1 w-full"
         onClick={handleOpenModal}
       >
-        Open Modal
+        <span > Open Modal</span>
       </button>
       <AnimatePresence>
         {showModal && (

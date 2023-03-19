@@ -9,8 +9,7 @@
   padding: 0;
   outline: none;
   -webkit-tap-highlight-color: transparent;
-  font-style: italic;
-  font-family: 'Droid Serif', serif;
+  font-family: "Droid Serif", serif;
   font-size: 14px;
   color: #2f2f2f;
   background-color: #f9f7f1;
@@ -39,12 +38,25 @@ header {
   line-height: 72px;
   margin-bottom: 20px;
 }
+span {
+  background-color: transparent;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+ul > li:before {
+  content: "✓ ";
+}
 
 @layer components {
   .btn1 {
     padding: 1.6em 2.4em;
     letter-spacing: 0.15em;
     color: #ffffff;
+    font-style: italic;
     font-weight: 700;
     text-transform: uppercase;
     background-color: #9bbf9d;
@@ -55,6 +67,16 @@ header {
     -webkit-transition: box-shadow 0.3s;
     -moz-transition: box-shadow 0.3s;
     transition: box-shadow 0.3s;
+  }
+  .btn1:hover {
+    color: #000000;
+    background-color: #ffffff;
+  }
+  .btn1:hover span {
+    display: none;
+  }
+  .btn1:hover::before {
+    content: "Learn More >";
   }
   .cd-modal {
     background: #402f44 url(./img/modal-bg.jpg) no-repeat center center;

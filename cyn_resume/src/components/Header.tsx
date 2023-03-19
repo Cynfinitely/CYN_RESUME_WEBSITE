@@ -1,6 +1,10 @@
 import React from "react";
 
 const Header = () => {
+  const currentDate = new Date();
+  let date = currentDate.getDate();
+  let month = new Date().toLocaleString("en-US", { month: "long" })
+
   return (
     <div className="head w-full ">
       <div className="headerobjectswrapper ml-4 mt-4 flex flex-row text-center">
@@ -12,6 +16,9 @@ const Header = () => {
         </div>
         <div className="grow">
           <header className="">CELAL YASIN NARI</header>
+        </div>
+        <div className="grow flex flex-row items-center justify-center text-center text-2xl">
+          {date} {month}
         </div>
       </div>
       <div className="subhead p-2 my-2 border-y-2 border-[#2f2f2f] text-center">

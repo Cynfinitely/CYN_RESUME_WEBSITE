@@ -26,24 +26,14 @@ const Footer = () => {
               LinkedIn{" "}
             </a>
             <a
-              href="/faqs"
+              href="https://celalyasinnari.medium.com/"
               className="rounded-full border px-4 pt-1 pb-0.5 transition-colors ease-in-out duration-200 border-main/10 hover:border-main"
             >
               {" "}
-              FAQ{" "}
-            </a>
-            <div className="hidden lg:block lg:flex-grow"></div>
-            <a href="https://demo.grandleisure.org/" target="_blank">
-              <div className="uppercase font-benton text-main text-sm rounded-full border px-4 pt-1 pb-0.5 transition-colors ease-in-out duration-200 border-main/10 hover:border-main">
-                {" "}
-                Demo{" "}
-              </div>
+              Medium{" "}
             </a>
           </nav>
         </div>
-        {/* <div className="pointer-events-none lg:block hidden max-w-[4000px] absolute bottom-0 left-1/2 transform -translate-x-1/2 ">
-          <img src={g1} className="" />
-        </div> */}
         <div className="lg:flex-1 lg:flex items-center px-4 pb-2 lg:px-0 justify-center lg:justify-end lg:pr-4 lg:py-2 text-right">
           <div className="hidden lg:block xl:hidden"></div>
           <div>

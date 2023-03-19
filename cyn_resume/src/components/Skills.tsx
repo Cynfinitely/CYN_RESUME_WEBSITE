@@ -14,7 +14,7 @@ const Skills = () => {
     <div className="w-full">
       <>
         <button className="btn1 w-full" type="button" onClick={handleOpenModal}>
-          Skills
+          <span> Skills</span>
         </button>
         <AnimatePresence>
           {showModal && (
@@ -31,46 +31,33 @@ const Skills = () => {
                   <h1>My Skills</h1>
 
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
-                    modi repellendus, optio eveniet eligendi molestiae? Fugiat,
-                    temporibus! A rerum pariatur neque laborum earum, illum
-                    voluptatibus eum voluptatem fugiat, porro animi tempora? Sit
-                    harum nulla, nesciunt molestias, iusto aliquam aperiam est
-                    qui possimus reprehenderit ipsam ea aut assumenda inventore
-                    iste! Animi quaerat facere repudiandae earum quisquam
-                    accusamus tempora, delectus nesciunt, provident quae
-                    aliquam, voluptatum beatae quis similique in maiores
-                    repellat eligendi voluptas veniam optio illum vero! Eius,
-                    dignissimos esse eligendi veniam.
+                    Celal Yasin Nari has a diverse skill set that encompasses
+                    web development, programming, database management, and more.
+                    He is a skilled full-stack web developer with expertise in
+                    technologies like React.js, Node.js, and Express, as well as
+                    front-end frameworks like Bootstrap and Tailwind. Celal is
+                    also proficient in programming languages like JavaScript,
+                    TypeScript, Python, and C, and has experience working with
+                    databases like MongoDB and PostgreSQL using tools like
+                    Mongoose.
                   </p>
-
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Debitis saepe amet sit fugit rerum, corporis minus vitae
-                    officia quaerat incidunt voluptate, blanditiis ea est
-                    quibusdam voluptas animi quasi totam magni, commodi
-                    praesentium. Possimus quam illo ipsam iste unde totam
-                    cupiditate deleniti, impedit assumenda hic eligendi natus
-                    tempora dolores quod mollitia ab non sunt eaque adipisci,
-                    suscipit quas aliquid officiis beatae. Necessitatibus
-                    voluptatibus, perferendis tenetur perspiciatis adipisci
-                    nesciunt eum ex fuga commodi iure numquam enim rem ullam
-                    labore nisi magni sint voluptatem quos! Eum iure
-                    exercitationem voluptates repellendus culpa doloremque
-                    laborum animi illum, sint fugit soluta possimus a fuga
-                    veritatis molestias corporis placeat illo pariatur dolor
-                    reiciendis earum, sapiente omnis. Placeat maiores omnis,
-                    porro officia, laborum eos. Fugiat mollitia inventore
-                    consequuntur odit eaque, rerum recusandae, eum sint
-                    molestiae consequatur culpa deserunt quae aliquid dolor
-                    tempora tenetur architecto repellendus enim quasi atque,
-                    odio voluptas. Tenetur repellendus explicabo ipsum inventore
-                    quia aut eos expedita necessitatibus asperiores blanditiis!
-                    Delectus nisi laudantium ipsum! Quasi blanditiis corrupti
-                    dicta maiores placeat laboriosam delectus ipsum facere
-                    voluptas, magnam voluptatibus, perferendis alias ullam
-                    saepe, perspiciatis recusandae voluptates, dolores
-                    praesentium?
+                    Additionally, he has experience working with REST APIs and
+                    has a strong understanding of Git/Github for version
+                    control. Celal is well-versed in the Agile methodology and
+                    has experience working with tools like Figma for design and
+                    Netlify and Heroku for deployment. He also has experience
+                    with Redux/Toolkit for state management and has a keen focus
+                    on accessibility in his work.
+                  </p>
+                  <p>
+                    Celal has a passion for technology and is constantly
+                    learning new skills to stay up-to-date with the latest
+                    trends in the industry. He is an excellent problem solver
+                    and is committed to delivering high-quality work that meets
+                    the needs of his clients. Overall, Celal's diverse skill set
+                    and commitment to excellence make him a valuable asset to
+                    any team.
                   </p>
                 </div>
                 <button className="modal-close" onClick={handleCloseModal}>

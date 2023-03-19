@@ -1,7 +1,6 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-
 const Projects = () => {
   const [showModal, setShowModal] = React.useState(false);
   const handleOpenModal = () => {
@@ -12,14 +11,10 @@ const Projects = () => {
     setShowModal(false);
   };
   return (
-    <div>
+    <div className="w-full">
       <>
-        <button
-          className="btn1"
-          type="button"
-          onClick={handleOpenModal}
-        >
-          Projects
+        <button className="btn1 w-full" type="button" onClick={handleOpenModal}>
+        <span > Projects</span>
         </button>
         <AnimatePresence>
           {showModal && (
