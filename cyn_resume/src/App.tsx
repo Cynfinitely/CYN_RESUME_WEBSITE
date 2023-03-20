@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import MyModal from "./components/MyModal";
+
 
 function App() {
   return (
@@ -12,7 +12,6 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/test" element={<MyModal />} />
         </Routes>
         <Footer />
       </div>

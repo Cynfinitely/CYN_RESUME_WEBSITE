@@ -1,7 +1,7 @@
 import About from "../components/About";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
-import Test from "./Test";
+import Test from "../components/Future";
 import g1 from "../img/g1.png";
 
 const Home = () => {
@@ -57,24 +57,51 @@ const Home = () => {
         <div>
           <Projects />
           <div className=" flex flex-col mt-4 items-center ">
-            <a href="https://fs12-fullstack-psi.vercel.app/">Lin Bags</a>
-            <p></p>
-            <a href="https://slush-todo-match.herokuapp.com/">
+            <a
+              href="https://fs12-fullstack-psi.vercel.app/ "
+              className="underline underline-offset-8 decoration-2 decoration-wavy  hover:decoration-green-900 m-4 uppercase hover:no-underline hover:border-y-2 hover:border-black"
+            >
+              Lin Bags
+            </a>
+
+            <a
+              href="https://slush-todo-match.herokuapp.com/"
+              className="underline underline-offset-8 decoration-2 decoration-wavy hover:decoration-green-900 m-4 uppercase hover:no-underline hover:border-y-2 hover:border-black"
+            >
               Slush Match-ToDo
             </a>
-            <p></p>
-            <a href="https://github.com/Cynfinitely/Django-Blog-App">
+
+            <a
+              href="https://github.com/Cynfinitely/Django-Blog-App"
+              className="underline underline-offset-8 decoration-2 decoration-wavy hover:decoration-green-900 m-4 uppercase hover:no-underline hover:border-y-2 hover:border-black"
+            >
               Django Blog App
             </a>
-            <p></p>
-            <a href="https://ronaldovsmessi-b7b75.web.app/">Ronaldo Vs Messi</a>
-            <p></p>
-            <a href="https://ducktivity.co/">Ducktivity</a>
-            <p></p>
+
+            <a
+              href="https://ronaldovsmessi-b7b75.web.app/"
+              className="underline underline-offset-8 decoration-2 decoration-wavy hover:decoration-green-900 m-4 uppercase hover:no-underline hover:border-y-2 hover:border-black"
+            >
+              Ronaldo Vs Messi
+            </a>
+
+            <a
+              href="https://ducktivity.co/"
+              className="underline underline-offset-8 decoration-2 decoration-wavy hover:decoration-green-900 m-4 uppercase hover:no-underline hover:border-y-2 hover:border-black"
+            >
+              Ducktivity
+            </a>
           </div>
         </div>
-        <div>
+        <div className="flex flex-col">
           <Test />
+          <div className="flex flex-col mt-4 justify-venter items-center grow ">
+            <ul className="">
+              <li className="my-4">Java Full Stack App</li>
+              <li className="my-4" >Youtube Channel</li>
+              <li className="my-4">StudyHelper</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
