@@ -58,7 +58,7 @@ const Projects = () => {
                       access certain features.
                     </p>
                     <h6>Features</h6>
-                    <p>
+                    <div>
                       The application includes the following features:
                       <ul>
                         <li>User registration and login </li>
@@ -68,7 +68,7 @@ const Projects = () => {
                         <li>Authentication and authorization</li>
                         <li> Responsive design using Tailwind CSS</li>
                       </ul>{" "}
-                    </p>
+                    </div>
                   </div>
                   <div className="project flex flex-col">
                     <h3>Slush Match&ToDo</h3>
@@ -99,7 +99,7 @@ const Projects = () => {
                       beyond users about their roles.
                     </p>
                     <h6>Features</h6>
-                    <p>
+                    <div>
                       The application includes the following features:
                       <ul>
                         <li>User Matching System</li>
@@ -110,7 +110,7 @@ const Projects = () => {
                         <li>Authentication and authorization</li>
                         <li> Responsive design using Tailwind CSS</li>
                       </ul>{" "}
-                    </p>
+                    </div>
                     <h6>Tech Used</h6>
                     <ul>
                       <li>PostgreSQL</li>

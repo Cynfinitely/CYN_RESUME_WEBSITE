@@ -1,12 +1,12 @@
-import About from "../components/About";
-import Projects from "../components/Projects";
-import Skills from "../components/Skills";
-import Test from "../components/Future";
+import About from "../components/About/About";
+import Projects from "../components/Projects/Projects";
+import Skills from "../components/Skills/Skills";
+import Test from "../components/Future/Future";
 import g1 from "../img/g1.png";
 
 const Home = () => {
   return (
-    <div className="flex flex-col grow w-screen">
+    <div className="flex flex-col grow w-screen mt-2">
       {" "}
       <div className=" flex flex-col   md:grid  md:h-min md:gap-6 md:grid-cols-5 md:divide-x">
         <div>

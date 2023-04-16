@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../img/logo.png";
+import logo from "../../img/logo.png";
 
 const Footer = () => {
   return (
@@ -12,7 +12,7 @@ const Footer = () => {
           <nav className="w-full flex space-x-6 lg:space-x-4 uppercase font-benton text-main lg:items-start lg:justify-start items-center justify-center text-sm">
             <a
               href="https://github.com/Cynfinitely"
-              className="  rounded-full border px-4 pt-1 pb-0.5  hover:bg-gray-400 "
+              className="  rounded-full border border-black px-4 pt-1 pb-0.5  hover:bg-gray-400 "
               aria-current="page"
             >
               {" "}
@@ -20,14 +20,14 @@ const Footer = () => {
             </a>
             <a
               href="https://www.linkedin.com/in/celal-yasin-nari/"
-              className="rounded-full border px-4 pt-1 pb-0.5  hover:bg-gray-400"
+              className="rounded-full border border-black px-4 pt-1 pb-0.5  hover:bg-gray-400"
             >
               {" "}
               LinkedIn{" "}
             </a>
             <a
               href="https://celalyasinnari.medium.com/"
-              className="rounded-full border px-4 pt-1 pb-0.5 hover:bg-gray-400"
+              className="rounded-full border border-black px-4 pt-1 pb-0.5 hover:bg-gray-400"
             >
               {" "}
               Medium{" "}
