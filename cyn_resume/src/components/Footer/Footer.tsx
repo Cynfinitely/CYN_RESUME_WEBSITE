@@ -26,6 +26,13 @@ const Footer = () => {
               LinkedIn{" "}
             </a>
             <a
+              href="https://www.youtube.com/@CynCoding"
+              className="rounded-full border border-black px-4 pt-1 pb-0.5 hover:bg-gray-400"
+            >
+              {" "}
+              Youtube{" "}
+            </a>
+            <a
               href="https://celalyasinnari.medium.com/"
               className="rounded-full border border-black px-4 pt-1 pb-0.5 hover:bg-gray-400"
             >

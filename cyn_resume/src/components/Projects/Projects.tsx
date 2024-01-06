@@ -79,13 +79,6 @@ const Projects = () => {
                       >
                         GitHub Repo
                       </a>
-
-                      <a
-                        href="https://slush-todo-match.herokuapp.com/"
-                        className="btn2 w-1/4 ml-24 md:px-4 md:py-8"
-                      >
-                        Project Website
-                      </a>
                     </div>
                     <p>
                       Slush is a full-stack web application created using the

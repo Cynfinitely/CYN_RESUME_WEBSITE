@@ -68,7 +68,7 @@ const Home = () => {
             </a>
 
             <a
-              href="https://slush-todo-match.herokuapp.com/"
+              href="https://github.com/Cynfinitely/slush"
               className="underline underline-offset-8 decoration-2 decoration-wavy hover:decoration-green-900 m-4 uppercase hover:no-underline hover:border-y-2 hover:border-black">
               Slush Match-ToDo
             </a>
@@ -96,9 +96,11 @@ const Home = () => {
           <Test />
           <div className="flex flex-col mt-4 justify-venter items-center grow ">
             <ul className="">
-              <li className="my-4">Java Full Stack App</li>
-              <li className="my-4">Youtube Channel</li>
-              <li className="my-4">StudyHelper</li>
+            <a
+              href="https://github.com/Cynfinitely/Finnify"
+              className="underline underline-offset-8 decoration-2 decoration-wavy hover:decoration-green-900 m-4 uppercase hover:no-underline hover:border-y-2 hover:border-black">
+              Finnify
+            </a>
             </ul>
           </div>
         </div>

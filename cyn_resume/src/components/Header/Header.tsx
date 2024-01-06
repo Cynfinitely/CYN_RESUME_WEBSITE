@@ -13,6 +13,7 @@ const Header = () => {
           <span className="mb-2 md:mb-0">Front-End Developer</span>
           <span className="mb-2 md:mb-0">Back-End Developer</span>
           <span className="mb-2 md:mb-0"> Instructor</span>
+          <span className="mb-2 md:mb-0">Youtuber</span>
         </div>
         <div className="grow">
           <header className="">CELAL YASIN NARI</header>
@@ -22,7 +23,7 @@ const Header = () => {
         </div>
       </div>
       <div className="subhead p-2 my-2 border-y-2 border-[#2f2f2f] text-center">
-        When life gives you a lemons..
+        Better than yesterday!
       </div>
     </div>
   );

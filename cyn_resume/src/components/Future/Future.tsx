@@ -30,20 +30,9 @@ const Test = () => {
             <div className="cd-modal visible">
               <div className="modal-content">
                 <h1>My Future Plans</h1>
-                <h3>Java Full Stack Project</h3>
+                <h3>Finnify</h3>
                 <p>
-                  I am working on full-stack project which will be about library
-                  management system. I will use Spring and Java in this project.
-                </p>
-                <h3>Youtube Channel</h3>
-                <p>
-                  I am planning to open youtube channel which will include HTML
-                  , CSS and other web development topics.
-                </p>
-                <h3>StudyHelper</h3>
-                <p>
-                  I am planning to develop app that helps user to study more
-                  with motivation tools and community support.
+                  I am planning to develop app that helps user to learn Finnish easy.
                 </p>
               </div>
               <button className="modal-close" onClick={handleCloseModal}>
