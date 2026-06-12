@@ -10,7 +10,13 @@ export function SkillsModal() {
 
   return (
     <>
-      <SectionButton label="Skills" onClick={() => setIsOpen(true)} aria-expanded={isOpen} />
+      <SectionButton
+        label="Skills"
+        sectionLabel="Technology"
+        teaserText="Next.js, TypeScript, Azure Functions, Node.js — full-stack expertise across frontend, backend, and cloud."
+        onClick={() => setIsOpen(true)}
+        aria-expanded={isOpen}
+      />
       <InkModal isOpen={isOpen} onClose={() => setIsOpen(false)} title="Skills">
         <div className="skills-grid">
           {skillCategories.map((category) => (

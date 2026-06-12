@@ -10,7 +10,13 @@ export function AboutModal() {
 
   return (
     <>
-      <SectionButton label="About Me" onClick={() => setIsOpen(true)} aria-expanded={isOpen} />
+      <SectionButton
+        label="About Me"
+        sectionLabel="Profile"
+        teaserText="Senior Full Stack Developer specializing in Next.js & Azure, building scalable products from Helsinki."
+        onClick={() => setIsOpen(true)}
+        aria-expanded={isOpen}
+      />
       <InkModal isOpen={isOpen} onClose={() => setIsOpen(false)} title="About Me">
         <div className="about-content">
           {profile.about.map((paragraph) => (

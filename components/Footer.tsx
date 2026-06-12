@@ -19,6 +19,9 @@ export function Footer() {
 
   return (
     <footer className="site-footer">
+      <p className="site-footer__ornament-rule" aria-hidden="true">
+        &#10022; &nbsp; &#10022; &nbsp; &#10022;
+      </p>
       <div className="site-footer__inner">
         <a href={socials.github} className="site-footer__logo" aria-label="GitHub profile">
           <Image

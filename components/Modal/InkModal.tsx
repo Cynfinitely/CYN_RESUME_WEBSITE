@@ -11,11 +11,25 @@ type InkModalProps = {
   children: React.ReactNode;
 };
 
-type ModalPhase = "closed" | "inkOpening" | "contentVisible" | "contentClosing" | "inkClosing";
+// inkOpening  : ink (z:52) sweeps forward, covering the screen
+// inkRevealing: ink (z:52) sweeps back while content (z:50) fades in behind it
+// contentVisible: ink gone, content fully visible
+// contentClosing: content fades out, then close immediately (no second ink sweep)
+type ModalPhase =
+  | "closed"
+  | "inkOpening"
+  | "inkRevealing"
+  | "contentVisible"
+  | "contentClosing";
 
 const INK_DURATION_MS = 800;
 const CONTENT_FADE_MS = 250;
 const REDUCED_MOTION_FADE_MS = 200;
+
+function getInkClass(phase: ModalPhase): string {
+  if (phase === "inkRevealing") return "ink-reverse";
+  return "ink-forward";
+}
 
 export function InkModal({ isOpen, onClose, title, children }: InkModalProps) {
   const [mounted, setMounted] = useState(false);
@@ -63,26 +77,23 @@ export function InkModal({ isOpen, onClose, title, children }: InkModalProps) {
 
   const handleContentAnimationComplete = useCallback(() => {
     if (phaseRef.current !== "contentClosing") return;
+    finishClose();
+  }, [finishClose]);
 
-    if (reduceMotion) {
-      finishClose();
-      return;
-    }
-
-    setPhase("inkClosing");
-  }, [reduceMotion, finishClose]);
-
+  // Handles the CSS sprite-sheet animation end for both ink phases.
   const handleInkAnimationEnd = useCallback(
     (event: React.AnimationEvent<HTMLDivElement>) => {
       if (event.target !== bgLayerRef.current) return;
 
       if (phaseRef.current === "inkOpening") {
+        // Forward sweep finished — screen fully covered. Start the reveal.
+        setPhase("inkRevealing");
+      } else if (phaseRef.current === "inkRevealing") {
+        // Reverse sweep finished — ink is back to the no-ink frame. Show content.
         setPhase("contentVisible");
-      } else if (phaseRef.current === "inkClosing") {
-        finishClose();
       }
     },
-    [finishClose],
+    [],
   );
 
   useEffect(() => {
@@ -119,25 +130,29 @@ export function InkModal({ isOpen, onClose, title, children }: InkModalProps) {
 
   if (!mounted || !isOpen) return null;
 
-  const showInk = phase === "inkOpening" || phase === "inkClosing";
-  const showContent = phase === "contentVisible" || phase === "contentClosing";
+  // Ink is visible during both sweep phases; content is visible once reveal starts.
+  const showInk = phase === "inkOpening" || phase === "inkRevealing";
+  const showContent =
+    phase === "inkRevealing" ||
+    phase === "contentVisible" ||
+    phase === "contentClosing";
 
   return createPortal(
     <>
-      <AnimatePresence>
-        {showInk && (
-          <motion.div
-            key="ink-layer"
-            className={`cd-transition-layer visible ${phase === "inkClosing" ? "closing" : "opening"}`}
-            initial={{ opacity: 1 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            aria-hidden="true"
-          >
-            <div ref={bgLayerRef} className="bg-layer" onAnimationEnd={handleInkAnimationEnd} />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Ink layer — no AnimatePresence fade; it unmounts cleanly after the
+          reverse animation ends at the "no-ink" sprite frame. */}
+      {showInk && (
+        <div
+          className={`cd-transition-layer ${getInkClass(phase)}`}
+          aria-hidden="true"
+        >
+          <div
+            ref={bgLayerRef}
+            className="bg-layer"
+            onAnimationEnd={handleInkAnimationEnd}
+          />
+        </div>
+      )}
 
       <AnimatePresence>
         {showContent && (

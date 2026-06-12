@@ -10,7 +10,13 @@ export function ExperienceModal() {
 
   return (
     <>
-      <SectionButton label="Experience" onClick={() => setIsOpen(true)} aria-expanded={isOpen} />
+      <SectionButton
+        label="Work Experience"
+        sectionLabel="Careers"
+        teaserText="From fintech to benefits platforms — 5+ years across Finland, Turkey, and the open web."
+        onClick={() => setIsOpen(true)}
+        aria-expanded={isOpen}
+      />
       <InkModal isOpen={isOpen} onClose={() => setIsOpen(false)} title="Work Experience">
         <div className="timeline">
           {experiences.map((item) => (

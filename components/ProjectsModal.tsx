@@ -10,7 +10,13 @@ export function ProjectsModal() {
 
   return (
     <>
-      <SectionButton label="Projects" onClick={() => setIsOpen(true)} aria-expanded={isOpen} />
+      <SectionButton
+        label="My Projects"
+        sectionLabel="Portfolio"
+        teaserText="CynSeat, EchoScribe, and more — open-source tools built with TypeScript, React, and Python."
+        onClick={() => setIsOpen(true)}
+        aria-expanded={isOpen}
+      />
       <InkModal isOpen={isOpen} onClose={() => setIsOpen(false)} title="My Projects">
         <div className="projects-list">
           {projects.map((project) => (
