@@ -10,7 +10,7 @@ export function ExperienceModal() {
 
   return (
     <>
-      <SectionButton label="Experience" onClick={() => setIsOpen(true)} />
+      <SectionButton label="Experience" onClick={() => setIsOpen(true)} aria-expanded={isOpen} />
       <InkModal isOpen={isOpen} onClose={() => setIsOpen(false)} title="Work Experience">
         <div className="timeline">
           {experiences.map((item) => (

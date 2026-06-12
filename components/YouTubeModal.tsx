@@ -16,7 +16,7 @@ export function YouTubeModal({ videos }: YouTubeModalProps) {
 
   return (
     <>
-      <SectionButton label="YouTube" onClick={() => setIsOpen(true)} />
+      <SectionButton label="YouTube" onClick={() => setIsOpen(true)} aria-expanded={isOpen} />
       <InkModal isOpen={isOpen} onClose={() => setIsOpen(false)} title="YouTube">
         <div className="youtube-section">
           <p className="youtube-intro">

@@ -10,7 +10,7 @@ export function SkillsModal() {
 
   return (
     <>
-      <SectionButton label="Skills" onClick={() => setIsOpen(true)} />
+      <SectionButton label="Skills" onClick={() => setIsOpen(true)} aria-expanded={isOpen} />
       <InkModal isOpen={isOpen} onClose={() => setIsOpen(false)} title="Skills">
         <div className="skills-grid">
           {skillCategories.map((category) => (

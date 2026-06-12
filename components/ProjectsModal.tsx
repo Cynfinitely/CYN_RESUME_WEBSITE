@@ -10,7 +10,7 @@ export function ProjectsModal() {
 
   return (
     <>
-      <SectionButton label="Projects" onClick={() => setIsOpen(true)} />
+      <SectionButton label="Projects" onClick={() => setIsOpen(true)} aria-expanded={isOpen} />
       <InkModal isOpen={isOpen} onClose={() => setIsOpen(false)} title="My Projects">
         <div className="projects-list">
           {projects.map((project) => (
