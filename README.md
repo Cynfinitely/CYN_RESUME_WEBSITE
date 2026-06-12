@@ -1,5 +1,18 @@
-# Welcome to the my resume website
-- [Click Here to Go My Resume Website!](https://cyn-resume-website.vercel.app/)
+# Welcome to my resume website
 
+- [Live site](https://cyn-resume-website.vercel.app/)
 
-As a junior full-stack developer, I am passionate about designing and developing user-friendly websites and web applications. This portfolio website is a showcase of my skills, experience and projects in the field of web development.
+Senior Full Stack Developer portfolio — newspaper-style personal brand site built with Next.js, TypeScript, and Tailwind CSS.
+
+## Development
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+## Deploy
+
+Deployed on Vercel. Set the project root directory to `/` (repo root, not `cyn_resume/`).
