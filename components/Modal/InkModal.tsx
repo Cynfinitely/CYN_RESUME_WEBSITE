@@ -11,41 +11,24 @@ type InkModalProps = {
   children: React.ReactNode;
 };
 
-// inkOpening  : ink (z:52) sweeps forward, covering the screen
-// inkRevealing: ink (z:52) sweeps back while content (z:50) fades in behind it
-// contentVisible: ink gone, content fully visible
-// contentClosing: content fades out, then close immediately (no second ink sweep)
-type ModalPhase =
-  | "closed"
-  | "inkOpening"
-  | "inkRevealing"
-  | "contentVisible"
-  | "contentClosing";
-
-const INK_DURATION_MS = 800;
-const CONTENT_FADE_MS = 250;
-const REDUCED_MOTION_FADE_MS = 200;
-
-function getInkClass(phase: ModalPhase): string {
-  if (phase === "inkRevealing") return "ink-reverse";
-  return "ink-forward";
-}
+const EASE = [0.22, 1, 0.36, 1] as const;
+const PANEL_DURATION = 0.45;
+const REVEAL_DURATION = 0.5;
+const FADE_DURATION = 0.2;
 
 export function InkModal({ isOpen, onClose, title, children }: InkModalProps) {
   const [mounted, setMounted] = useState(false);
-  const [phase, setPhase] = useState<ModalPhase>("closed");
+  const [isPresent, setIsPresent] = useState(false);
   const reduceMotion = useReducedMotion();
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
-  const bgLayerRef = useRef<HTMLDivElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
-  const phaseRef = useRef<ModalPhase>("closed");
 
-  const contentFadeMs = reduceMotion ? REDUCED_MOTION_FADE_MS : CONTENT_FADE_MS;
-
-  phaseRef.current = phase;
+  const panelDuration = reduceMotion ? FADE_DURATION : PANEL_DURATION;
+  const revealDuration = reduceMotion ? FADE_DURATION : REVEAL_DURATION;
 
   const finishClose = useCallback(() => {
+    document.body.style.overflow = "";
     onClose();
     previousFocusRef.current?.focus();
   }, [onClose]);
@@ -53,55 +36,31 @@ export function InkModal({ isOpen, onClose, title, children }: InkModalProps) {
   useEffect(() => setMounted(true), []);
 
   useEffect(() => {
-    if (!isOpen) {
-      document.body.style.overflow = "";
-      setPhase("closed");
+    if (isOpen) {
+      previousFocusRef.current = document.activeElement as HTMLElement;
+      document.body.style.overflow = "hidden";
+      setIsPresent(true);
       return;
     }
 
-    previousFocusRef.current = document.activeElement as HTMLElement;
-    document.body.style.overflow = "hidden";
-    setPhase(reduceMotion ? "contentVisible" : "inkOpening");
-  }, [isOpen, reduceMotion]);
+    setIsPresent(false);
+  }, [isOpen]);
 
   useEffect(() => {
-    if (phase === "contentVisible" && closeButtonRef.current) {
-      closeButtonRef.current.focus();
-    }
-  }, [phase]);
+    if (!isPresent || !closeButtonRef.current) return;
+    closeButtonRef.current.focus();
+  }, [isPresent]);
 
-  const handleClose = useCallback(() => {
-    if (phase !== "contentVisible") return;
-    setPhase("contentClosing");
-  }, [phase]);
-
-  const handleContentAnimationComplete = useCallback(() => {
-    if (phaseRef.current !== "contentClosing") return;
-    finishClose();
-  }, [finishClose]);
-
-  // Handles the CSS sprite-sheet animation end for both ink phases.
-  const handleInkAnimationEnd = useCallback(
-    (event: React.AnimationEvent<HTMLDivElement>) => {
-      if (event.target !== bgLayerRef.current) return;
-
-      if (phaseRef.current === "inkOpening") {
-        // Forward sweep finished — screen fully covered. Start the reveal.
-        setPhase("inkRevealing");
-      } else if (phaseRef.current === "inkRevealing") {
-        // Reverse sweep finished — ink is back to the no-ink frame. Show content.
-        setPhase("contentVisible");
-      }
-    },
-    [],
-  );
+  const requestClose = useCallback(() => {
+    setIsPresent(false);
+  }, []);
 
   useEffect(() => {
-    if (phase !== "contentVisible") return;
+    if (!isPresent) return;
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        handleClose();
+        requestClose();
         return;
       }
 
@@ -126,36 +85,24 @@ export function InkModal({ isOpen, onClose, title, children }: InkModalProps) {
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [phase, handleClose]);
+  }, [isPresent, requestClose]);
 
-  if (!mounted || !isOpen) return null;
-
-  // Ink is visible during both sweep phases; content is visible once reveal starts.
-  const showInk = phase === "inkOpening" || phase === "inkRevealing";
-  const showContent =
-    phase === "inkRevealing" ||
-    phase === "contentVisible" ||
-    phase === "contentClosing";
+  if (!mounted) return null;
 
   return createPortal(
-    <>
-      {/* Ink layer — no AnimatePresence fade; it unmounts cleanly after the
-          reverse animation ends at the "no-ink" sprite frame. */}
-      {showInk && (
-        <div
-          className={`cd-transition-layer ${getInkClass(phase)}`}
-          aria-hidden="true"
-        >
-          <div
-            ref={bgLayerRef}
-            className="bg-layer"
-            onAnimationEnd={handleInkAnimationEnd}
+    <AnimatePresence onExitComplete={finishClose}>
+      {isPresent && (
+        <>
+          <motion.div
+            key="modal-backdrop"
+            className="modal-backdrop"
+            aria-hidden="true"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: panelDuration, ease: EASE }}
           />
-        </div>
-      )}
 
-      <AnimatePresence>
-        {showContent && (
           <motion.div
             key="modal-panel"
             ref={modalRef}
@@ -163,31 +110,71 @@ export function InkModal({ isOpen, onClose, title, children }: InkModalProps) {
             role="dialog"
             aria-modal="true"
             aria-labelledby="modal-title"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: phase === "contentClosing" ? 0 : 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: contentFadeMs / 1000, ease: "easeInOut" }}
-            onAnimationComplete={handleContentAnimationComplete}
+            initial={
+              reduceMotion
+                ? { opacity: 0 }
+                : { opacity: 0, y: 48, scale: 0.96 }
+            }
+            animate={
+              reduceMotion
+                ? { opacity: 1 }
+                : { opacity: 1, y: 0, scale: 1 }
+            }
+            exit={
+              reduceMotion
+                ? { opacity: 0 }
+                : { opacity: 0, y: 24, scale: 0.98 }
+            }
+            transition={{ duration: panelDuration, ease: EASE }}
           >
-            <div className="modal-content">
+            {!reduceMotion && (
+              <motion.div
+                className="modal-fold-rule"
+                aria-hidden="true"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                exit={{ scaleX: 0 }}
+                transition={{ duration: revealDuration * 0.8, delay: 0.12, ease: EASE }}
+              />
+            )}
+            {reduceMotion && <div className="modal-fold-rule" aria-hidden="true" />}
+
+            <motion.div
+              className="modal-content"
+              initial={
+                reduceMotion
+                  ? { opacity: 0 }
+                  : { clipPath: "inset(0 100% 0 0)" }
+              }
+              animate={
+                reduceMotion
+                  ? { opacity: 1 }
+                  : { clipPath: "inset(0 0% 0 0)" }
+              }
+              exit={
+                reduceMotion
+                  ? { opacity: 0 }
+                  : { clipPath: "inset(0 0 0 100%)" }
+              }
+              transition={{ duration: revealDuration, delay: reduceMotion ? 0 : 0.08, ease: EASE }}
+            >
               <h1 id="modal-title">{title}</h1>
               {children}
-            </div>
+            </motion.div>
+
             <button
               ref={closeButtonRef}
               type="button"
               className="modal-close"
-              onClick={handleClose}
+              onClick={requestClose}
               aria-label="Close modal"
             >
               Close Modal
             </button>
           </motion.div>
-        )}
-      </AnimatePresence>
-    </>,
+        </>
+      )}
+    </AnimatePresence>,
     document.body,
   );
 }
-
-export { INK_DURATION_MS, CONTENT_FADE_MS };

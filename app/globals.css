@@ -32,7 +32,6 @@
   --transition-fast: 150ms ease;
   --transition-base: 250ms ease;
   --touch-min: 44px;
-  --ink-duration: 0.8s;
 }
 
 *,
@@ -83,8 +82,6 @@ img {
   flex-direction: column;
   min-height: 100vh;
   width: 100%;
-  max-width: 1440px;
-  margin-inline: auto;
   position: relative;
   z-index: 1;
 }
@@ -535,9 +532,8 @@ img {
   transition: color var(--transition-fast);
 }
 
-/* Stacking within same column */
-.section-btn + .section-btn,
-.section-spacer .section-btn {
+/* Stacking adjacent teaser cards — drop duplicate top border only */
+.section-btn + .section-btn {
   margin-top: 0;
   border-top: none;
 }
@@ -705,8 +701,17 @@ img {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   MODALS
+   MODALS — newspaper page-lift transition
    ═══════════════════════════════════════════════════════════ */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 49;
+  background: rgba(13, 13, 13, 0.52);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
 .cd-modal {
   position: fixed;
   inset: 0;
@@ -714,6 +719,21 @@ img {
   overflow: hidden;
   background: var(--modal-bg) url(/img/modal-bg.jpg) no-repeat center center;
   background-size: cover;
+  transform-origin: top center;
+  box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Masthead rule that draws in left-to-right on open */
+.modal-fold-rule {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--modal-text);
+  transform-origin: left center;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .cd-modal .modal-content {
@@ -818,51 +838,6 @@ img {
 .cd-modal .modal-close:focus-visible {
   outline: 2px solid var(--modal-text);
   outline-offset: var(--focus-offset);
-}
-
-/* ═══════════════════════════════════════════════════════════
-   INK TRANSITION — FIXED
-   z-index 52: above modal (50) and close button (53 now uses 53)
-   No conflicting CSS opacity — Framer Motion owns that entirely.
-   Two CSS classes: ink-forward (sweeps in) and ink-reverse (retreats).
-   ═══════════════════════════════════════════════════════════ */
-.cd-transition-layer {
-  position: fixed;
-  inset: 0;
-  z-index: 52;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.cd-transition-layer .bg-layer {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateY(-50%) translateX(-2%);
-  height: 100%;
-  width: 2500%;
-  background: url(/img/ink.png) no-repeat 0 0;
-  background-size: 100% 100%;
-}
-
-/* Forward sweep: no ink → full ink (covers screen) */
-.cd-transition-layer.ink-forward .bg-layer {
-  animation: cd-sequence var(--ink-duration) steps(24) forwards;
-}
-
-/* Reverse sweep: full ink → no ink (reveals content beneath) */
-.cd-transition-layer.ink-reverse .bg-layer {
-  animation: cd-sequence-reverse var(--ink-duration) steps(24) forwards;
-}
-
-@keyframes cd-sequence {
-  from { transform: translateY(-50%) translateX(-2%); }
-  to   { transform: translateY(-50%) translateX(-98%); }
-}
-
-@keyframes cd-sequence-reverse {
-  from { transform: translateY(-50%) translateX(-98%); }
-  to   { transform: translateY(-50%) translateX(-2%); }
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -1062,13 +1037,9 @@ img {
    REDUCED MOTION
    ═══════════════════════════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
-  :root {
-    --ink-duration: 0ms;
-  }
-
-  .cd-transition-layer.ink-forward .bg-layer,
-  .cd-transition-layer.ink-reverse .bg-layer {
-    animation: none;
+  .modal-backdrop {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 
   .section-btn {
