@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 
@@ -13,6 +13,13 @@ const sourceSerif = Source_Serif_4({
   variable: "--font-droid",
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#f0e4c2",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cyn-resume-website.vercel.app"),

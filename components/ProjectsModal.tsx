@@ -13,7 +13,7 @@ export function ProjectsModal() {
       <SectionButton
         label="My Projects"
         sectionLabel="Portfolio"
-        teaserText="CynSeat, EchoScribe, and more — open-source tools built with TypeScript, React, and Python."
+        teaserText="Control, CynSeat, and more — life-management, ticketing, and tools in TypeScript and Python."
         onClick={() => setIsOpen(true)}
         aria-expanded={isOpen}
       />
@@ -24,11 +24,11 @@ export function ProjectsModal() {
               <h3>{project.name}</h3>
               <div className="project-links">
                 <a href={project.githubUrl} className="btn2" target="_blank" rel="noopener noreferrer">
-                  GitHub Repo
+                  GitHub
                 </a>
                 {project.liveUrl && (
                   <a href={project.liveUrl} className="btn2" target="_blank" rel="noopener noreferrer">
-                    Live Site
+                    Live
                   </a>
                 )}
               </div>
