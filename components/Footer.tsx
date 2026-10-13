@@ -23,15 +23,13 @@ export function Footer() {
         &#10022; &nbsp; &#10022; &nbsp; &#10022;
       </p>
       <div className="site-footer__inner">
-        <a href={socials.github} className="site-footer__logo" aria-label="GitHub profile">
-          <Image
-            src="/img/logo.png"
-            alt="CYN logo"
-            width={100}
-            height={34}
-            className="site-footer__logo-image"
-          />
-        </a>
+        <Image
+          src="/img/logo.png"
+          alt="CYN logo"
+          width={90}
+          height={90}
+          className="site-footer__logo-image"
+        />
 
         <nav className="site-footer__nav" aria-label="Social links">
           {links.map((link) => (
@@ -41,10 +39,9 @@ export function Footer() {
               className="site-footer__social-link"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={link.label}
-              title={link.label}
             >
               <SocialIcon platform={link.icon} className="site-footer__social-icon" />
+              {link.label}
             </a>
           ))}
         </nav>

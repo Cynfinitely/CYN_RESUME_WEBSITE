@@ -9,6 +9,19 @@ export type YouTubeVideo = {
 
 const RSS_URL = `https://www.youtube.com/feeds/videos.xml?channel_id=${socials.youtubeChannelId}`;
 
+const ENTITIES: Record<string, string> = {
+  "&amp;": "&",
+  "&lt;": "<",
+  "&gt;": ">",
+  "&quot;": '"',
+  "&#39;": "'",
+  "&apos;": "'",
+};
+
+function decodeEntities(text: string): string {
+  return text.replace(/&(?:amp|lt|gt|quot|apos|#39);/g, (entity) => ENTITIES[entity]);
+}
+
 function parseVideoEntries(xml: string): YouTubeVideo[] {
   const entries = xml.match(/<entry>[\s\S]*?<\/entry>/g) ?? [];
   const videos: YouTubeVideo[] = [];
@@ -22,7 +35,7 @@ function parseVideoEntries(xml: string): YouTubeVideo[] {
 
     videos.push({
       id,
-      title: title.replace(/&amp;/g, "&").replace(/&#39;/g, "'"),
+      title: decodeEntities(title),
       publishedAt,
       thumbnail: `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
     });

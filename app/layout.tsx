@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Source_Serif_4 } from "next/font/google";
+import { profile } from "@/data/profile";
+import { socials } from "@/data/socials";
+import { skillCategories } from "@/data/skills";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -10,7 +13,7 @@ const playfair = Playfair_Display({
 
 const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
-  variable: "--font-droid",
+  variable: "--font-body",
   display: "swap",
 });
 
@@ -34,16 +37,30 @@ export const metadata: Metadata = {
     siteName: "Celal Yasin Nari",
     locale: "en_US",
     type: "website",
-    images: [{ url: "/img/g1.png", width: 800, height: 800, alt: "Celal Yasin Nari" }],
+    images: [{ url: "/img/g1.png", width: 500, height: 500, alt: "Celal Yasin Nari" }],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Celal Yasin Nari | Senior Full Stack Developer",
     description:
       "Senior Full Stack Developer in Helsinki building scalable products with Next.js and Azure.",
     images: ["/img/g1.png"],
   },
   robots: { index: true, follow: true },
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Celal Yasin Nari",
+  jobTitle: profile.roles[0],
+  url: "https://cyn-resume-website.vercel.app",
+  image: "https://cyn-resume-website.vercel.app/img/g1.png",
+  address: { "@type": "PostalAddress", addressLocality: "Helsinki", addressCountry: "FI" },
+  worksFor: { "@type": "Organization", name: "Northfina" },
+  alumniOf: { "@type": "CollegeOrUniversity", name: profile.education.school },
+  sameAs: [socials.github, socials.linkedin, socials.youtube, socials.medium],
+  knowsAbout: skillCategories.flatMap((category) => category.skills),
 };
 
 export default function RootLayout({
@@ -53,7 +70,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${playfair.variable} ${sourceSerif.variable}`}>{children}</body>
+      <body className={`${playfair.variable} ${sourceSerif.variable}`}>
+        {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+      </body>
     </html>
   );
 }

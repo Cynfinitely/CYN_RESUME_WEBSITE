@@ -5,7 +5,6 @@ type SectionButtonProps = {
   label: string;
   onClick: () => void;
   className?: string;
-  "aria-expanded"?: boolean;
   /** Small-caps department slug above the headline (e.g. "Engineering") */
   sectionLabel?: string;
   /** 1–2 sentence teaser body copy */
@@ -16,7 +15,6 @@ export function SectionButton({
   label,
   onClick,
   className = "",
-  "aria-expanded": ariaExpanded,
   sectionLabel,
   teaserText,
 }: SectionButtonProps) {
@@ -25,7 +23,7 @@ export function SectionButton({
       type="button"
       className={`section-btn ${className}`.trim()}
       onClick={onClick}
-      aria-expanded={ariaExpanded}
+      aria-haspopup="dialog"
     >
       {sectionLabel && (
         <span className="section-teaser__dept" aria-hidden="true">

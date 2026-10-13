@@ -1,39 +1,27 @@
-"use client";
-
-import { useState } from "react";
 import { profile } from "@/data/profile";
-import { InkModal } from "@/components/Modal/InkModal";
-import { SectionButton } from "@/components/SectionButton";
+import { SectionModal } from "@/components/SectionModal";
 
 export function AboutModal() {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
-    <>
-      <SectionButton
-        label="About Me"
-        sectionLabel="Profile"
-        teaserText="Senior Full Stack Developer specializing in Next.js & Azure, building scalable products from Helsinki."
-        onClick={() => setIsOpen(true)}
-        aria-expanded={isOpen}
-      />
-      <InkModal isOpen={isOpen} onClose={() => setIsOpen(false)} title="About Me">
-        <div className="about-content">
-          {profile.about.map((paragraph) => (
-            <p key={paragraph.slice(0, 40)}>{paragraph}</p>
-          ))}
-          <div className="education-block">
-            <h3>Education</h3>
-            <p>
-              <strong>{profile.education.degree}</strong>
-              <br />
-              {profile.education.school} · {profile.education.period}
-              <br />
-              {profile.education.location}
-            </p>
-          </div>
-        </div>
-      </InkModal>
-    </>
+    <SectionModal
+      id="about"
+      label="About Me"
+      sectionLabel="Profile"
+      teaserText="Senior Full Stack Developer specializing in Next.js & Azure, building scalable products from Helsinki."
+    >
+      {profile.about.map((paragraph) => (
+        <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+      ))}
+      <div className="education-block">
+        <h3 className="modal-heading">Education</h3>
+        <p>
+          <strong>{profile.education.degree}</strong>
+          <br />
+          {profile.education.school} · {profile.education.period}
+          <br />
+          {profile.education.location}
+        </p>
+      </div>
+    </SectionModal>
   );
 }

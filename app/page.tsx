@@ -12,17 +12,15 @@ export default async function HomePage() {
   const videos = await getLatestVideos();
 
   return (
-    <main className="page-shell">
+    <div className="page-shell">
       <Header />
 
-      <div className="newspaper-grid">
-        <section className="grid-col grid-col--about" aria-label="About section">
-          <span className="col-section-label" aria-hidden="true">Profile</span>
+      <main className="newspaper-grid">
+        <section className="grid-col grid-col--about" aria-label="About">
           <AboutModal />
         </section>
 
-        <section className="grid-col grid-col--skills" aria-label="Skills section">
-          <span className="col-section-label" aria-hidden="true">Technology</span>
+        <section className="grid-col grid-col--skills" aria-label="Skills">
           <SkillsModal />
         </section>
 
@@ -32,7 +30,7 @@ export default async function HomePage() {
             <Image
               src="/img/g1.png"
               alt="Portrait of Celal Yasin Nari"
-              width={400}
+              width={500}
               height={500}
               priority
               className="portrait-image"
@@ -43,22 +41,19 @@ export default async function HomePage() {
           </div>
         </section>
 
-        <section className="grid-col grid-col--projects" aria-label="Projects section">
-          <span className="col-section-label" aria-hidden="true">Portfolio</span>
+        <section className="grid-col grid-col--projects" aria-label="Projects">
           <ProjectsModal />
         </section>
 
         <section className="grid-col grid-col--more" aria-label="Experience and YouTube">
-          <span className="col-section-label" aria-hidden="true">Careers</span>
           <ExperienceModal />
           <div className="section-spacer">
-            <span className="col-section-label" aria-hidden="true">Media</span>
             <YouTubeModal videos={videos} />
           </div>
         </section>
-      </div>
+      </main>
 
       <Footer />
-    </main>
+    </div>
   );
 }
