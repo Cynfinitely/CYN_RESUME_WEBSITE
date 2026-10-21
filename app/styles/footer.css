@@ -1,0 +1,106 @@
+/* ═══════════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════════ */
+.site-footer {
+  background: var(--paper-dark);
+  margin-top: auto;
+  padding-block: var(--section-gap);
+  width: 100%;
+  border-top: 5px double var(--border);
+}
+
+.site-footer__ornament-rule {
+  text-align: center;
+  font-size: 0.8rem;
+  letter-spacing: 0.5em;
+  color: var(--ink-mid);
+  margin: 0 0 0.75rem;
+  line-height: 1;
+  padding-inline: var(--page-gutter);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
+}
+
+.site-footer__logo-image {
+  width: 72px;
+  height: auto;
+  flex-shrink: 0;
+  filter: grayscale(100%) contrast(1.2);
+}
+
+.site-footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.site-footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: var(--touch-min);
+  padding: 0 0.85rem;
+  border: var(--border-rule);
+  color: var(--ink);
+  font-size: var(--text-meta);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.site-footer__social-link:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+.site-footer__social-link:active {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.site-footer__social-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex-shrink: 0;
+}
+
+.site-footer__copyright {
+  margin: 0.75rem 0 0;
+  padding-inline: var(--page-gutter);
+  text-align: center;
+  font-size: var(--text-meta);
+  color: var(--ink-mid);
+  letter-spacing: 0.06em;
+  font-variant: small-caps;
+}
+
+@media (max-width: 479px) {
+  .site-footer__nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .site-footer__inner {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+}

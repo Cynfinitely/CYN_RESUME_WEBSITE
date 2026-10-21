@@ -1,0 +1,184 @@
+/* ═══════════════════════════════════════════════════════════
+   MODALS — the inverted page
+   ═══════════════════════════════════════════════════════════ */
+.cd-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100dvh;
+  padding-left: var(--safe-left);
+  padding-right: var(--safe-right);
+  background: var(--modal-bg);
+  color: var(--modal-text);
+}
+
+.cd-modal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: var(--grain);
+  background-size: 300px 300px;
+}
+
+.cd-modal :focus-visible {
+  outline: var(--focus-ring-inverse);
+  outline-offset: var(--focus-offset);
+}
+
+.cd-modal a {
+  color: var(--modal-text);
+}
+
+/* Top bar: department slug + close */
+.modal-bar {
+  position: relative;
+  flex: none;
+  padding: max(0.5rem, var(--safe-top)) var(--page-gutter) 0.5rem;
+  border-top: 4px solid var(--modal-text);
+  border-bottom: 1px solid var(--modal-rule);
+}
+
+.modal-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: var(--page-max);
+  margin-inline: auto;
+}
+
+.modal-slug {
+  display: block;
+  font-size: var(--text-meta);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--modal-muted);
+}
+
+.modal-content {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: clamp(1.5rem, 4vw, 3rem) var(--page-gutter)
+    max(2.5rem, calc(var(--safe-bottom) + 1.5rem));
+}
+
+.modal-content:focus-visible {
+  outline-offset: -4px;
+}
+
+.modal-column {
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.modal-column--wide {
+  max-width: 960px;
+}
+
+/* Modal typography */
+.modal-title {
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 3px double var(--modal-text);
+  font-family: var(--font-playfair), "Playfair Display", Georgia, serif;
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.modal-heading {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-playfair), "Playfair Display", Georgia, serif;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.modal-subheading {
+  margin: 1.25rem 0 0.5rem;
+  font-size: var(--text-meta);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--modal-muted);
+}
+
+.cd-modal p,
+.modal-list li {
+  font-size: var(--text-body);
+  line-height: 1.65;
+}
+
+.cd-modal p {
+  margin: 0 0 1em;
+}
+
+.modal-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.modal-list li {
+  position: relative;
+  padding-left: 1.35em;
+}
+
+.modal-list li + li {
+  margin-top: 0.25rem;
+}
+
+.modal-list li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  font-size: 0.65em;
+  color: var(--modal-muted);
+}
+
+.modal-empty {
+  padding: 1.25rem;
+  border: 1px dashed var(--modal-rule);
+  text-align: center;
+}
+
+/* Outline button on the dark page — close, project links */
+.modal-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: var(--touch-min);
+  padding: 0 1rem;
+  background-color: transparent;
+  border: 2px solid var(--modal-text);
+  color: var(--modal-text);
+  font-family: inherit;
+  font-size: var(--text-meta);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.cd-modal a.modal-btn:active,
+.modal-btn:active {
+  background-color: var(--modal-text);
+  color: var(--modal-bg);
+}

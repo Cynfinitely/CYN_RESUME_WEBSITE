@@ -1,0 +1,215 @@
+/* ═══════════════════════════════════════════════════════════
+   NEWSPAPER GRID
+   ═══════════════════════════════════════════════════════════ */
+.newspaper-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  flex: 1;
+  width: 100%;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
+}
+
+.grid-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-block: var(--section-gap);
+  border-bottom: var(--border-rule);
+  min-width: 0;
+}
+
+.grid-col--more {
+  gap: 0;
+}
+
+.section-spacer {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: var(--border-thin);
+}
+
+.grid-col:last-child {
+  border-bottom: none;
+}
+
+/* Column section-label slugs */
+.col-section-label {
+  display: block;
+  font-size: var(--text-meta);
+  letter-spacing: 0.18em;
+  color: var(--crimson);
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+}
+
+.col-section-label::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background: var(--crimson);
+  margin-top: 0.2rem;
+  width: 2rem;
+}
+
+@media (max-width: 639px) {
+  .col-section-label {
+    display: none;
+  }
+
+  /* Lead with the portrait on phones */
+  .grid-col--portrait {
+    order: -1;
+  }
+
+  .grid-col:last-child {
+    border-bottom: none;
+  }
+
+  .portrait-image {
+    width: min(100%, 160px);
+  }
+}
+
+/* Portrait column */
+.portrait-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.5rem;
+  margin-block: 0.25rem;
+  border: 3px double var(--border);
+}
+
+.portrait-image {
+  width: min(100%, 280px);
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(15%) contrast(1.05);
+}
+
+.portrait-caption {
+  margin-top: 0.4rem;
+  font-size: var(--text-meta);
+  font-style: italic;
+  color: var(--ink-mid);
+  text-align: center;
+  line-height: 1.35;
+  padding-top: 0.3rem;
+  border-top: var(--border-thin);
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .newspaper-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0;
+  }
+
+  .grid-col {
+    padding-block: var(--section-gap);
+    border-bottom: var(--border-rule);
+    border-right: none;
+  }
+
+  /* Explicit right-border assignments — left-column items get the divider */
+  .grid-col--about {
+    border-right: var(--border-rule);
+    padding-right: var(--section-gap);
+  }
+  .grid-col--skills {
+    border-right: none;
+    padding-left: var(--section-gap);
+  }
+  .grid-col--projects {
+    border-right: var(--border-rule);
+    border-bottom: none;
+    padding-right: var(--section-gap);
+  }
+
+  .grid-col--portrait {
+    grid-column: 1 / -1;
+    border-bottom: var(--border-rule);
+    border-right: none;
+  }
+
+  .grid-col--more {
+    border-right: none;
+    border-bottom: none;
+    padding-left: var(--section-gap);
+  }
+
+  .portrait-image {
+    width: min(100%, 220px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .newspaper-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0;
+    align-items: stretch;
+  }
+
+  .grid-col {
+    border-bottom: none;
+    border-right: var(--border-rule);
+    padding: 1rem 0.9rem;
+    min-height: 100%;
+  }
+
+  .grid-col:last-child {
+    border-right: none;
+  }
+
+  /* Reset the 640px explicit overrides — all columns get right borders at desktop */
+  .grid-col--about {
+    border-right: var(--border-rule);
+  }
+  .grid-col--skills {
+    border-right: var(--border-rule);
+  }
+  .grid-col--projects {
+    border-right: var(--border-rule);
+  }
+
+  .grid-col--portrait {
+    grid-column: auto;
+    border-right: var(--border-rule);
+  }
+
+  .grid-col--more {
+    grid-column: auto;
+    border-bottom: none;
+  }
+
+  .portrait-image {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Cards and the portrait frame fill the column so all five align */
+  .grid-col .section-btn,
+  .portrait-frame {
+    flex: 1;
+  }
+
+  .portrait-frame {
+    margin-block: 0;
+  }
+
+  .portrait-caption {
+    margin-top: auto;
+  }
+
+  .section-spacer {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+}

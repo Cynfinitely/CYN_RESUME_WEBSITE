@@ -1,0 +1,208 @@
+/* ═══════════════════════════════════════════════════════════
+   MODAL CONTENT BLOCKS
+   ═══════════════════════════════════════════════════════════ */
+.skills-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.skill-category .modal-heading {
+  margin-bottom: 0.75rem;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-tags li {
+  background: var(--modal-chip);
+  border: 1px solid var(--modal-rule);
+  padding: 0.3rem 0.7rem;
+  font-size: var(--text-small);
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+.project-card {
+  padding-block: 1.75rem;
+  border-top: 1px solid var(--modal-rule);
+}
+
+.project-card:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+.project-card .modal-slug {
+  margin-bottom: 0.35rem;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.project-private {
+  font-size: var(--text-small);
+  font-style: italic;
+  color: var(--modal-muted);
+}
+
+@media (max-width: 479px) {
+  .project-links .modal-btn {
+    flex: 1 1 0;
+  }
+}
+
+.timeline {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0.5rem;
+  bottom: 0;
+  width: 2px;
+  background: var(--modal-rule);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -1.5rem;
+  top: 0.5rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--modal-text);
+}
+
+.cd-modal .timeline-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.5rem;
+  margin-bottom: 0.65rem;
+  font-size: var(--text-small);
+  color: var(--modal-muted);
+}
+
+/* Company on its own line so the separator never starts a wrapped line */
+.timeline-meta strong {
+  flex-basis: 100%;
+  color: var(--modal-text);
+}
+
+.timeline-meta span + span::before {
+  content: "·";
+  margin-right: 0.5rem;
+}
+
+.video-grid {
+  display: grid;
+  gap: 2rem 1.5rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .video-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border: 1px solid var(--modal-rule);
+}
+
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-play {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.video-thumb {
+  object-fit: cover;
+}
+
+.video-play__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  padding-left: 0.2rem;
+  transform: translate(-50%, -50%);
+  border: 2px solid var(--modal-text);
+  background: rgba(13, 13, 13, 0.75);
+  color: var(--modal-text);
+  font-size: 1.1rem;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.video-card__title {
+  margin: 0.65rem 0 0.2rem;
+  font-family: var(--font-playfair), "Playfair Display", Georgia, serif;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.video-card__title a {
+  text-decoration: none;
+}
+
+.video-card time {
+  font-size: var(--text-small);
+  color: var(--modal-muted);
+}
+
+.education-block {
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--modal-rule);
+}

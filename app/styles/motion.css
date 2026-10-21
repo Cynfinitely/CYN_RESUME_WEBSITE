@@ -1,0 +1,16 @@
+/* ═══════════════════════════════════════════════════════════
+   REDUCED MOTION
+   ═══════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .section-btn,
+  .section-btn *,
+  .site-footer__social-link,
+  .modal-btn,
+  .video-play__icon {
+    transition: none;
+  }
+}

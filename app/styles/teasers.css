@@ -1,0 +1,150 @@
+/* ═══════════════════════════════════════════════════════════
+   SECTION TEASER CARDS — replaces green pill buttons
+   ═══════════════════════════════════════════════════════════ */
+.section-btn {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: var(--touch-min);
+  padding: 0.75rem 0.85rem 0.65rem;
+  background: transparent;
+  border: var(--border-rule);
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  color: var(--ink);
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+  position: relative;
+  gap: 0;
+}
+
+.section-btn:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+  background-color: var(--ink);
+  color: var(--paper);
+}
+
+.section-btn:focus-visible .section-teaser__dept {
+  color: var(--paper-dark);
+}
+
+.section-btn:focus-visible .section-teaser__dept::after {
+  background: var(--paper-dark);
+}
+
+.section-btn:focus-visible .section-teaser__cta,
+.section-btn:focus-visible .section-teaser__body {
+  color: var(--paper);
+}
+
+.section-btn:active {
+  background-color: var(--ink);
+  color: var(--paper);
+}
+
+.section-btn:active .section-teaser__dept,
+.section-btn:active .section-teaser__cta {
+  color: var(--paper-dark);
+}
+
+.section-btn:active .section-teaser__dept::after {
+  background: var(--paper-dark);
+}
+
+.section-btn:active .section-teaser__body {
+  color: var(--paper);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .section-btn:hover {
+    background-color: var(--ink);
+    color: var(--paper);
+  }
+
+  .section-btn:hover .section-teaser__dept,
+  .section-btn:hover .section-teaser__cta {
+    color: var(--paper-dark);
+  }
+
+  .section-btn:hover .section-teaser__dept::after {
+    background: var(--paper-dark);
+  }
+
+  .section-btn:hover .section-teaser__body {
+    color: var(--paper);
+  }
+
+  .cd-modal a.modal-btn:hover,
+  .modal-btn:hover,
+  .video-play:hover .video-play__icon {
+    background-color: var(--modal-text);
+    color: var(--modal-bg);
+  }
+
+  .site-footer__social-link:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .video-card__title a:hover {
+    text-decoration: underline;
+  }
+}
+
+/* Department slug inside the teaser */
+.section-teaser__dept {
+  display: block;
+  font-size: var(--text-meta);
+  letter-spacing: 0.2em;
+  color: var(--crimson);
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  transition: color var(--transition-fast);
+}
+
+.section-teaser__dept::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background: var(--crimson);
+  margin-top: 0.2rem;
+  width: 1.5rem;
+  transition: background var(--transition-fast);
+}
+
+/* Headline */
+.section-teaser__headline {
+  font-family: var(--font-playfair), "Playfair Display", Georgia, serif;
+  font-size: clamp(1.125rem, 2.2vw, 1.375rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 0.4rem;
+}
+
+/* Body excerpt */
+.section-teaser__body {
+  font-size: var(--text-small);
+  line-height: 1.5;
+  color: var(--ink-mid);
+  margin: 0 0 0.5rem;
+  flex: 1;
+  transition: color var(--transition-fast);
+}
+
+/* Read more CTA */
+.section-teaser__cta {
+  display: block;
+  text-align: right;
+  font-size: var(--text-meta);
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  color: var(--ink);
+  margin-top: 0.25rem;
+  border-top: var(--border-thin);
+  padding-top: 0.3rem;
+  transition: color var(--transition-fast);
+}

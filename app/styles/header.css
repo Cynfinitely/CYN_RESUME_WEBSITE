@@ -1,0 +1,222 @@
+/* ═══════════════════════════════════════════════════════════
+   HEADER — Broadsheet Masthead
+   ═══════════════════════════════════════════════════════════ */
+.site-header {
+  width: 100%;
+  padding: 0;
+}
+
+.site-header__content {
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
+  padding-top: var(--section-gap);
+}
+
+/* Edition metadata bar — sits above the masthead */
+.site-header__edition-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3rem 0 0.4rem;
+  border-top: var(--border-thick);
+  border-bottom: var(--border-thin);
+  margin-bottom: 0;
+  font-size: var(--text-meta);
+  letter-spacing: 0.1em;
+  font-variant: small-caps;
+  color: var(--ink-mid);
+  gap: 0.5rem;
+}
+
+.site-header__edition-bar span {
+  white-space: nowrap;
+}
+
+.site-header__edition-location {
+  text-align: center;
+  flex: 1;
+  font-style: italic;
+}
+
+@media (max-width: 479px) {
+  .site-header__edition-location {
+    display: none;
+  }
+
+  .site-header__edition-bar span {
+    white-space: normal;
+  }
+
+  .site-header__edition-bar {
+    justify-content: space-between;
+  }
+}
+
+/* Masthead row */
+.site-header__masthead-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--header-gap);
+  align-items: center;
+  text-align: center;
+  padding: 0.6rem 0 0.4rem;
+  border-bottom: var(--border-thick);
+}
+
+.role-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.55rem 0.75rem;
+  border: 3px double var(--border);
+  color: var(--ink);
+  font-size: var(--text-meta);
+  line-height: 1.3;
+  justify-self: center;
+  width: min(100%, 260px);
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+}
+
+.site-header__title-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+
+.masthead {
+  font-family: var(--font-playfair), "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 7vw, 4.5rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  text-wrap: balance;
+}
+
+.site-header__date {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  font-size: var(--text-meta);
+  color: var(--ink);
+  justify-self: center;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Thick decorative rule below masthead row — double line */
+.site-header__masthead-rule {
+  height: 0;
+  border: none;
+  border-top: 5px double var(--border);
+  margin: 0;
+}
+
+/* Subhead / tagline banner */
+.subhead {
+  margin: 0;
+  padding: 0.5rem var(--page-gutter);
+  border-bottom: var(--border-rule);
+  text-align: center;
+  font-style: italic;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  line-height: 1.5;
+  color: var(--ink);
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+  background: var(--paper-dark);
+}
+
+@media (max-width: 639px) {
+  .site-header__content {
+    padding-top: max(0.5rem, var(--safe-top));
+  }
+
+  .site-header__masthead-row {
+    gap: 0.35rem;
+    padding: 0.35rem 0 0.25rem;
+  }
+
+  .masthead {
+    font-size: clamp(1.65rem, 8.5vw, 2.35rem);
+  }
+
+  .role-box {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: none;
+    padding: 0.1rem 0;
+    border: none;
+    gap: 0;
+  }
+
+  .role-box span:not(:last-child)::after {
+    content: "\00a0·\00a0";
+  }
+
+  .site-header__date {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .site-header__date span:not(:last-child)::after {
+    content: "\00a0·\00a0";
+  }
+
+  .subhead {
+    padding-block: 0.4rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .site-header__masthead-row {
+    grid-template-columns: minmax(120px, 160px) minmax(0, 1fr) minmax(
+        120px,
+        160px
+      );
+    text-align: left;
+    align-items: start;
+  }
+
+  .role-box {
+    justify-self: start;
+    width: auto;
+  }
+
+  .site-header__title-wrap {
+    text-align: center;
+  }
+
+  .site-header__date {
+    justify-self: end;
+    text-align: right;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-header__masthead-row {
+    grid-template-columns: minmax(150px, 185px) minmax(0, 1fr) minmax(
+        150px,
+        185px
+      );
+    gap: 1rem;
+    padding: 0.75rem 0 0.5rem;
+  }
+
+  .masthead {
+    font-size: clamp(2.75rem, 4vw, 5.5rem);
+  }
+}
