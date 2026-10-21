@@ -1,5 +1,6 @@
 export const profile = {
   name: "CELAL YASIN NARI",
+  siteUrl: "https://cyn-resume-website.vercel.app",
   roles: ["Senior Full Stack Developer", "Instructor", "YouTuber"],
   tagline:
     "Senior Full-Stack Developer building scalable products with Next.js & Azure — in Helsinki, for the web.",

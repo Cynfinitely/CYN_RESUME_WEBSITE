@@ -20,8 +20,13 @@ const ENTITIES: Record<string, string> = {
 
 function decodeEntities(text: string): string {
   return text.replace(
-    /&(?:amp|lt|gt|quot|apos|#39);/g,
-    entity => ENTITIES[entity]
+    /&(?:amp|lt|gt|quot|apos|#39|#\d+|#x[\da-f]+);/gi,
+    entity => {
+      if (entity in ENTITIES) return ENTITIES[entity];
+      const hex = entity[2] === "x" || entity[2] === "X";
+      const code = parseInt(entity.slice(hex ? 3 : 2, -1), hex ? 16 : 10);
+      return code <= 0x10ffff ? String.fromCodePoint(code) : entity;
+    }
   );
 }
 

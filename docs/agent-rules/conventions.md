@@ -54,5 +54,5 @@ General conventions for any agent or human working in this repo. Repo-specific n
 - Imports use the `@/` alias (`@/components/...`, `@/data/...`).
 - Components are named exports (`export function Header()`), one per file in `components/`, PascalCase file names. Next.js route files in `app/` keep their default exports.
 - Content (text, links, projects, skills) is data in `data/*.ts`; components only render it.
-- Styling goes through the CSS custom properties in `app/globals.css`; reuse tokens instead of hardcoding colors or sizes.
+- Styling goes through the CSS custom properties in `app/styles/tokens.css`; reuse tokens instead of hardcoding colors or sizes.
 - Accessibility is required: keyboard focus, `aria-*` on interactive elements, and `prefers-reduced-motion` support for animations.

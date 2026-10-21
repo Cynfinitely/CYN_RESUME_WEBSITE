@@ -31,6 +31,6 @@ Shared project knowledge for AI assistants. Commit this file.
 - Commands: `npm run dev`, `npm run build`, `npm run lint`, `npm run typecheck`, `npm run format`.
 - All site content lives in `data/` (`profile.ts`, `projects.ts`, `experience.ts`, `skills.ts`, `socials.ts`). Change content there, not in components.
 - Each section is a hash-routed modal (`/#about`, `/#skills`, …): `components/SectionModal.tsx` (teaser + URL) wraps `components/Modal/InkModal.tsx` (dialog, focus trap, Escape, reduced motion).
-- Design tokens and all styles are in `app/globals.css` (1990s broadsheet theme). It is over the ~600-line guideline; the pre-push size check only warns.
+- Styles: `app/globals.css` imports `app/styles/*.css` in order (tokens first, motion last). 1990s broadsheet theme; reuse tokens from `tokens.css`.
 - `lib/youtube.ts` reads the channel RSS feed, revalidated hourly.
 - Deployed on Vercel from the repo root; every push to `master` deploys.

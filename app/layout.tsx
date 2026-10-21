@@ -25,7 +25,8 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://cyn-resume-website.vercel.app"),
+  metadataBase: new URL(profile.siteUrl),
+  alternates: { canonical: "/" },
   title: "Celal Yasin Nari | Senior Full Stack Developer",
   description:
     "Senior Full Stack Developer in Helsinki building scalable products with Next.js and Azure. Portfolio, projects, experience, and YouTube content.",
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     title: "Celal Yasin Nari | Senior Full Stack Developer",
     description:
       "Senior Full Stack Developer in Helsinki building scalable products with Next.js and Azure.",
-    url: "https://cyn-resume-website.vercel.app",
+    url: profile.siteUrl,
     siteName: "Celal Yasin Nari",
     locale: "en_US",
     type: "website",
@@ -56,8 +57,8 @@ const personJsonLd = {
   "@type": "Person",
   name: "Celal Yasin Nari",
   jobTitle: profile.roles[0],
-  url: "https://cyn-resume-website.vercel.app",
-  image: "https://cyn-resume-website.vercel.app/img/g1.png",
+  url: profile.siteUrl,
+  image: `${profile.siteUrl}/img/g1.png`,
   address: {
     "@type": "PostalAddress",
     addressLocality: "Helsinki",
@@ -80,7 +81,10 @@ export default function RootLayout({
         {children}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+          dangerouslySetInnerHTML={{
+            // Escape "<" so data can never close the script tag early
+            __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c"),
+          }}
         />
       </body>
     </html>
