@@ -44,7 +44,9 @@ export const experiences: Experience[] = [
     company: "Integrify",
     period: "Aug 2022 – Jun 2023",
     location: "Helsinki, Finland",
-    highlights: ["Developed full-stack web projects as part of Integrify Academy."],
+    highlights: [
+      "Developed full-stack web projects as part of Integrify Academy.",
+    ],
   },
   {
     role: "Backend Instructor",

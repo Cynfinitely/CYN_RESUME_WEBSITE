@@ -22,7 +22,14 @@ const FADE_DURATION = 0.15;
 const FOCUSABLE =
   'a[href], button:not([disabled]), iframe, textarea, input, select, [tabindex]:not([tabindex="-1"])';
 
-export function InkModal({ isOpen, onClose, title, sectionLabel, wide, children }: InkModalProps) {
+export function InkModal({
+  isOpen,
+  onClose,
+  title,
+  sectionLabel,
+  wide,
+  children,
+}: InkModalProps) {
   const [mounted, setMounted] = useState(false);
   const [isPresent, setIsPresent] = useState(false);
   const reduceMotion = useReducedMotion();
@@ -70,7 +77,8 @@ export function InkModal({ isOpen, onClose, title, sectionLabel, wide, children 
 
       if (event.key !== "Tab" || !modalRef.current) return;
 
-      const focusable = modalRef.current.querySelectorAll<HTMLElement>(FOCUSABLE);
+      const focusable =
+        modalRef.current.querySelectorAll<HTMLElement>(FOCUSABLE);
       if (focusable.length === 0) return;
 
       const first = focusable[0];
@@ -104,7 +112,10 @@ export function InkModal({ isOpen, onClose, title, sectionLabel, wide, children 
           initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 24 }}
           animate={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
           exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 16 }}
-          transition={{ duration: reduceMotion ? FADE_DURATION : PANEL_DURATION, ease: EASE }}
+          transition={{
+            duration: reduceMotion ? FADE_DURATION : PANEL_DURATION,
+            ease: EASE,
+          }}
         >
           <div className="modal-bar">
             <div className="modal-bar__inner">
@@ -121,8 +132,17 @@ export function InkModal({ isOpen, onClose, title, sectionLabel, wide, children 
           </div>
 
           {/* Focusable so keyboard users can scroll sections with no links */}
-          <div className="modal-content" tabIndex={0} role="group" aria-labelledby={titleId}>
-            <div className={wide ? "modal-column modal-column--wide" : "modal-column"}>
+          <div
+            className="modal-content"
+            tabIndex={0}
+            role="group"
+            aria-labelledby={titleId}
+          >
+            <div
+              className={
+                wide ? "modal-column modal-column--wide" : "modal-column"
+              }
+            >
               <h2 id={titleId} className="modal-title">
                 {title}
               </h2>
@@ -132,6 +152,6 @@ export function InkModal({ isOpen, onClose, title, sectionLabel, wide, children 
         </motion.div>
       )}
     </AnimatePresence>,
-    document.body,
+    document.body
   );
 }

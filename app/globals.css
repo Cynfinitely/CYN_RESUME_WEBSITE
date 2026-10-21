@@ -295,7 +295,10 @@ img {
 
 @media (min-width: 640px) {
   .site-header__masthead-row {
-    grid-template-columns: minmax(120px, 160px) minmax(0, 1fr) minmax(120px, 160px);
+    grid-template-columns: minmax(120px, 160px) minmax(0, 1fr) minmax(
+        120px,
+        160px
+      );
     text-align: left;
     align-items: start;
   }
@@ -317,7 +320,10 @@ img {
 
 @media (min-width: 1024px) {
   .site-header__masthead-row {
-    grid-template-columns: minmax(150px, 185px) minmax(0, 1fr) minmax(150px, 185px);
+    grid-template-columns: minmax(150px, 185px) minmax(0, 1fr) minmax(
+        150px,
+        185px
+      );
     gap: 1rem;
     padding: 0.75rem 0 0.5rem;
   }
@@ -447,9 +453,19 @@ img {
   }
 
   /* Explicit right-border assignments — left-column items get the divider */
-  .grid-col--about    { border-right: var(--border-rule); padding-right: var(--section-gap); }
-  .grid-col--skills   { border-right: none; padding-left: var(--section-gap); }
-  .grid-col--projects { border-right: var(--border-rule); border-bottom: none; padding-right: var(--section-gap); }
+  .grid-col--about {
+    border-right: var(--border-rule);
+    padding-right: var(--section-gap);
+  }
+  .grid-col--skills {
+    border-right: none;
+    padding-left: var(--section-gap);
+  }
+  .grid-col--projects {
+    border-right: var(--border-rule);
+    border-bottom: none;
+    padding-right: var(--section-gap);
+  }
 
   .grid-col--portrait {
     grid-column: 1 / -1;
@@ -487,9 +503,15 @@ img {
   }
 
   /* Reset the 640px explicit overrides — all columns get right borders at desktop */
-  .grid-col--about    { border-right: var(--border-rule); }
-  .grid-col--skills   { border-right: var(--border-rule); }
-  .grid-col--projects { border-right: var(--border-rule); }
+  .grid-col--about {
+    border-right: var(--border-rule);
+  }
+  .grid-col--skills {
+    border-right: var(--border-rule);
+  }
+  .grid-col--projects {
+    border-right: var(--border-rule);
+  }
 
   .grid-col--portrait {
     grid-column: auto;
@@ -855,9 +877,7 @@ img {
   overflow-y: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
-  padding:
-    clamp(1.5rem, 4vw, 3rem)
-    var(--page-gutter)
+  padding: clamp(1.5rem, 4vw, 3rem) var(--page-gutter)
     max(2.5rem, calc(var(--safe-bottom) + 1.5rem));
 }
 

@@ -11,7 +11,7 @@ function helsinkiDateParts(now: Date) {
     year: "numeric",
   }).formatToParts(now);
   const get = (type: Intl.DateTimeFormatPartTypes) =>
-    parts.find((part) => part.type === type)?.value ?? "";
+    parts.find(part => part.type === type)?.value ?? "";
 
   return {
     dayName: get("weekday"),
@@ -35,18 +35,21 @@ export function Header() {
   return (
     <header className="site-header">
       <div className="site-header__content">
-
         {/* Edition metadata bar */}
         <div className="site-header__edition-bar">
-          <span>Est. 2019 &middot; Vol. {vol}, No. {editionNo}</span>
-          <span className="site-header__edition-location">{profile.location}</span>
+          <span>
+            Est. 2019 &middot; Vol. {vol}, No. {editionNo}
+          </span>
+          <span className="site-header__edition-location">
+            {profile.location}
+          </span>
           <span>Free</span>
         </div>
 
         {/* Masthead row: roles | name | date */}
         <div className="site-header__masthead-row">
           <div className="role-box">
-            {profile.roles.map((role) => (
+            {profile.roles.map(role => (
               <span key={role}>{role}</span>
             ))}
           </div>
@@ -57,7 +60,9 @@ export function Header() {
 
           <time className="site-header__date" dateTime={iso}>
             <span>{dayName}</span>
-            <span>{day} {month}</span>
+            <span>
+              {day} {month}
+            </span>
             <span>{year}</span>
           </time>
         </div>

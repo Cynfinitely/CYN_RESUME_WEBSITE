@@ -1,7 +1,10 @@
 import Image from "next/image";
 import { socials } from "@/data/socials";
 import { profile } from "@/data/profile";
-import { SocialIcon, type SocialPlatform } from "@/components/icons/SocialIcons";
+import {
+  SocialIcon,
+  type SocialPlatform,
+} from "@/components/icons/SocialIcons";
 
 const links: { label: string; href: string; icon: SocialPlatform }[] = [
   { label: "GitHub", href: socials.github, icon: "github" },
@@ -14,7 +17,7 @@ export function Footer() {
   const year = new Date().getFullYear();
   const displayName = profile.name
     .split(" ")
-    .map((word) => word.charAt(0) + word.slice(1).toLowerCase())
+    .map(word => word.charAt(0) + word.slice(1).toLowerCase())
     .join(" ");
 
   return (
@@ -32,7 +35,7 @@ export function Footer() {
         />
 
         <nav className="site-footer__nav" aria-label="Social links">
-          {links.map((link) => (
+          {links.map(link => (
             <a
               key={link.label}
               href={link.href}
@@ -40,7 +43,10 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <SocialIcon platform={link.icon} className="site-footer__social-icon" />
+              <SocialIcon
+                platform={link.icon}
+                className="site-footer__social-icon"
+              />
               {link.label}
             </a>
           ))}

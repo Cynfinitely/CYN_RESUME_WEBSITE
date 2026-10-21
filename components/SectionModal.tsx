@@ -17,7 +17,14 @@ type SectionModalProps = {
   children: React.ReactNode;
 };
 
-export function SectionModal({ id, label, sectionLabel, teaserText, wide, children }: SectionModalProps) {
+export function SectionModal({
+  id,
+  label,
+  sectionLabel,
+  teaserText,
+  wide,
+  children,
+}: SectionModalProps) {
   const [isOpen, setIsOpen] = useState(false);
   // True while the current history entry is one we pushed, so closing can pop it
   const pushedRef = useRef(false);
@@ -52,7 +59,11 @@ export function SectionModal({ id, label, sectionLabel, teaserText, wide, childr
     }
 
     if (window.location.hash === `#${id}`) {
-      window.history.replaceState(null, "", window.location.pathname + window.location.search);
+      window.history.replaceState(
+        null,
+        "",
+        window.location.pathname + window.location.search
+      );
     }
     setIsOpen(false);
   }, [id]);
@@ -65,7 +76,13 @@ export function SectionModal({ id, label, sectionLabel, teaserText, wide, childr
         teaserText={teaserText}
         onClick={open}
       />
-      <InkModal isOpen={isOpen} onClose={close} title={label} sectionLabel={sectionLabel} wide={wide}>
+      <InkModal
+        isOpen={isOpen}
+        onClose={close}
+        title={label}
+        sectionLabel={sectionLabel}
+        wide={wide}
+      >
         {children}
       </InkModal>
     </>

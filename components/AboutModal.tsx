@@ -9,7 +9,7 @@ export function AboutModal() {
       sectionLabel="Profile"
       teaserText="Senior Full Stack Developer specializing in Next.js & Azure, building scalable products from Helsinki."
     >
-      {profile.about.map((paragraph) => (
+      {profile.about.map(paragraph => (
         <p key={paragraph.slice(0, 40)}>{paragraph}</p>
       ))}
       <div className="education-block">

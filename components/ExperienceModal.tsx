@@ -10,8 +10,11 @@ export function ExperienceModal() {
       teaserText="From fintech to benefits platforms — 5+ years across Finland, Turkey, and the open web."
     >
       <div className="timeline">
-        {experiences.map((item) => (
-          <article key={`${item.company}-${item.period}`} className="timeline-item">
+        {experiences.map(item => (
+          <article
+            key={`${item.company}-${item.period}`}
+            className="timeline-item"
+          >
             <div className="timeline-marker" aria-hidden="true" />
             <h3 className="modal-heading">{item.role}</h3>
             <p className="timeline-meta">
@@ -20,7 +23,7 @@ export function ExperienceModal() {
               {item.location && <span>{item.location}</span>}
             </p>
             <ul className="modal-list">
-              {item.highlights.map((highlight) => (
+              {item.highlights.map(highlight => (
                 <li key={highlight}>{highlight}</li>
               ))}
             </ul>

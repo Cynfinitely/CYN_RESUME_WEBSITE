@@ -25,7 +25,9 @@ export default async function HomePage() {
         </section>
 
         <section className="grid-col grid-col--portrait" aria-label="Portrait">
-          <span className="col-section-label" aria-hidden="true">Correspondent</span>
+          <span className="col-section-label" aria-hidden="true">
+            Correspondent
+          </span>
           <div className="portrait-frame">
             <Image
               src="/img/g1.png"
@@ -45,7 +47,10 @@ export default async function HomePage() {
           <ProjectsModal />
         </section>
 
-        <section className="grid-col grid-col--more" aria-label="Experience and YouTube">
+        <section
+          className="grid-col grid-col--more"
+          aria-label="Experience and YouTube"
+        >
           <ExperienceModal />
           <div className="section-spacer">
             <YouTubeModal videos={videos} />

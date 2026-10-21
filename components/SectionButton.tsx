@@ -33,9 +33,7 @@ export function SectionButton({
 
       <span className="section-teaser__headline">{label}</span>
 
-      {teaserText && (
-        <span className="section-teaser__body">{teaserText}</span>
-      )}
+      {teaserText && <span className="section-teaser__body">{teaserText}</span>}
 
       <span className="section-teaser__cta" aria-hidden="true">
         Read More &rsaquo;

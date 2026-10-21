@@ -1,4 +1,5 @@
-export type ProjectCategory = "Product" | "Game" | "Utility" | "Business" | "Community";
+export type ProjectCategory =
+  "Product" | "Game" | "Utility" | "Business" | "Community";
 
 export type Project = {
   name: string;
@@ -25,7 +26,14 @@ export const projects: Project[] = [
       "Exercise logging and workout programs",
       "Cross-area daily, weekly, and monthly reports",
     ],
-    tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "NextAuth", "Tailwind CSS"],
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "NextAuth",
+      "Tailwind CSS",
+    ],
     githubUrl: "https://github.com/Cynfinitely/Control",
     liveUrl: "https://control-two-psi.vercel.app",
   },
@@ -40,7 +48,14 @@ export const projects: Project[] = [
       "GitHub App integration with pull-request lookup and reports",
       "Career tracks and weekly delivery assessments",
     ],
-    tech: ["Next.js", "TypeScript", "Cloudflare Workers", "Cloudflare D1", "Drizzle", "Tailwind CSS"],
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Cloudflare Workers",
+      "Cloudflare D1",
+      "Drizzle",
+      "Tailwind CSS",
+    ],
     isPrivate: true,
   },
   {
@@ -68,7 +83,14 @@ export const projects: Project[] = [
       "Written interpretations from a real interpreter",
       "Payments and email behind small provider ports",
     ],
-    tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Auth.js", "Tailwind CSS"],
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "Auth.js",
+      "Tailwind CSS",
+    ],
     liveUrl: "https://dusyora.vercel.app",
     isPrivate: true,
   },

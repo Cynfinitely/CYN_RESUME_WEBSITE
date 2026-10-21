@@ -19,7 +19,10 @@ const ENTITIES: Record<string, string> = {
 };
 
 function decodeEntities(text: string): string {
-  return text.replace(/&(?:amp|lt|gt|quot|apos|#39);/g, (entity) => ENTITIES[entity]);
+  return text.replace(
+    /&(?:amp|lt|gt|quot|apos|#39);/g,
+    entity => ENTITIES[entity]
+  );
 }
 
 function parseVideoEntries(xml: string): YouTubeVideo[] {

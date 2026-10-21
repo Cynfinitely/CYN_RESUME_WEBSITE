@@ -11,11 +11,11 @@ export function SkillsModal() {
       wide
     >
       <div className="skills-grid">
-        {skillCategories.map((category) => (
+        {skillCategories.map(category => (
           <div key={category.name} className="skill-category">
             <h3 className="modal-heading">{category.name}</h3>
             <ul className="skill-tags">
-              {category.skills.map((skill) => (
+              {category.skills.map(skill => (
                 <li key={skill}>{skill}</li>
               ))}
             </ul>

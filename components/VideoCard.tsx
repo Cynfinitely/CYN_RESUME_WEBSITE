@@ -13,7 +13,7 @@ export function VideoCard({ video }: { video: YouTubeVideo }) {
         {isPlaying ? (
           <iframe
             // Keep focus inside the modal when the play button is replaced
-            ref={(frame) => frame?.focus()}
+            ref={frame => frame?.focus()}
             src={`https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1`}
             title={video.title}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

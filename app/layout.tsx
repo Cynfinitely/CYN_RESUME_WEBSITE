@@ -37,7 +37,9 @@ export const metadata: Metadata = {
     siteName: "Celal Yasin Nari",
     locale: "en_US",
     type: "website",
-    images: [{ url: "/img/g1.png", width: 500, height: 500, alt: "Celal Yasin Nari" }],
+    images: [
+      { url: "/img/g1.png", width: 500, height: 500, alt: "Celal Yasin Nari" },
+    ],
   },
   twitter: {
     card: "summary",
@@ -56,11 +58,15 @@ const personJsonLd = {
   jobTitle: profile.roles[0],
   url: "https://cyn-resume-website.vercel.app",
   image: "https://cyn-resume-website.vercel.app/img/g1.png",
-  address: { "@type": "PostalAddress", addressLocality: "Helsinki", addressCountry: "FI" },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Helsinki",
+    addressCountry: "FI",
+  },
   worksFor: { "@type": "Organization", name: "Northfina" },
   alumniOf: { "@type": "CollegeOrUniversity", name: profile.education.school },
   sameAs: [socials.github, socials.linkedin, socials.youtube, socials.medium],
-  knowsAbout: skillCategories.flatMap((category) => category.skills),
+  knowsAbout: skillCategories.flatMap(category => category.skills),
 };
 
 export default function RootLayout({

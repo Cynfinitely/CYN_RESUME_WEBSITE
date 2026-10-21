@@ -1,10 +1,6 @@
 export const profile = {
   name: "CELAL YASIN NARI",
-  roles: [
-    "Senior Full Stack Developer",
-    "Instructor",
-    "YouTuber",
-  ],
+  roles: ["Senior Full Stack Developer", "Instructor", "YouTuber"],
   tagline:
     "Senior Full-Stack Developer building scalable products with Next.js & Azure — in Helsinki, for the web.",
   location: "Helsinki, Finland",

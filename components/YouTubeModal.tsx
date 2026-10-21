@@ -17,8 +17,8 @@ export function YouTubeModal({ videos }: YouTubeModalProps) {
       wide
     >
       <p>
-        Developer-focused content on job hunting, mentoring, and real-world software
-        engineering.{" "}
+        Developer-focused content on job hunting, mentoring, and real-world
+        software engineering.{" "}
         <a href={socials.youtube} target="_blank" rel="noopener noreferrer">
           Visit @CynCoding <span aria-hidden="true">&#8599;</span>
         </a>
@@ -32,7 +32,7 @@ export function YouTubeModal({ videos }: YouTubeModalProps) {
         </p>
       ) : (
         <div className="video-grid">
-          {videos.map((video) => (
+          {videos.map(video => (
             <VideoCard key={video.id} video={video} />
           ))}
         </div>
