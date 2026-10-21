@@ -1,0 +1,9 @@
+ROOT_DIR=$(CDPATH= cd -- "$(dirname "$0")/.." && pwd)
+
+# GUI git clients (Cursor, VS Code) run hooks with a minimal PATH that omits nvm.
+# Bootstrap Node before any npx/npm so the commit doesn't hang or fail silently.
+# shellcheck disable=SC1091
+. "$ROOT_DIR/scripts/ensure-node.sh"
+
+node "$ROOT_DIR/scripts/check-ai-attribution.mjs" "$1" || exit 1
+npx --no -- commitlint --edit "$1"

@@ -1,0 +1,33 @@
+ROOT_DIR=$(CDPATH= cd -- "$(dirname "$0")/.." && pwd)
+
+# GUI git clients (Cursor, VS Code) run hooks with a minimal PATH that omits nvm.
+# Bootstrap Node before any npx/npm so the commit doesn't hang or fail silently.
+# shellcheck disable=SC1091
+. "$ROOT_DIR/scripts/ensure-node.sh"
+
+echo "🔍 Running pre-commit checks..."
+
+# Scan staged changes for secrets first, before lint-staged reformats files,
+# so the scan sees exactly what was staged.
+echo "🔐 Scanning staged changes for secrets..."
+if command -v gitleaks >/dev/null 2>&1; then
+  gitleaks git --staged --redact --no-banner "$ROOT_DIR" || {
+    echo "❌ Secret scan found potential credentials in staged changes. See output above."
+    echo "   False positive: add a 'gitleaks:allow' comment on the line, or list the fingerprint in .gitleaksignore."
+    exit 1
+  }
+elif [ "${REQUIRE_SECRET_SCAN:-}" = "1" ]; then
+  echo "❌ gitleaks is not installed and REQUIRE_SECRET_SCAN=1. Install it: brew install gitleaks"
+  exit 1
+else
+  echo "⚠️  gitleaks not installed; secret scan skipped. Install it: brew install gitleaks"
+fi
+
+# Format and lint staged files (config: lint-staged in package.json).
+echo "📝 Formatting and linting staged files..."
+npx --no -- lint-staged || {
+  echo "❌ lint-staged failed. Fix the issues above, re-stage, and commit again."
+  exit 1
+}
+
+echo "✅ All checks passed!"

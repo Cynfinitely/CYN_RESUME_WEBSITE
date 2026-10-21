@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+  if [ "$local_sha" = "0000000000000000000000000000000000000000" ]; then
+    continue
+  fi
+  export PRE_PUSH_LOCAL_SHA="$local_sha"
+  export PRE_PUSH_REMOTE_SHA="$remote_sha"
+done
+
+exec sh "$(dirname "$0")/../scripts/pre-push-check.sh"

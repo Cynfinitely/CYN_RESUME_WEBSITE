@@ -6,7 +6,14 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint . --max-warnings 0",
+    "typecheck": "tsc --noEmit",
+    "prepare": "sh -c '[ -n \"$CI\" ] || [ ! -d .git ] || husky'",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check:ai-attribution": "node scripts/check-ai-attribution.mjs",
+    "test:ai-attribution": "node --test scripts/check-ai-attribution.test.mjs",
+    "test:commitlint": "node --test scripts/commitlint-config.test.mjs"
   },
   "dependencies": {
     "framer-motion": "^11.18.2",
@@ -15,13 +22,27 @@
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^21.2.4",
+    "@commitlint/config-conventional": "^21.2.4",
     "@tailwindcss/postcss": "^4.1.8",
     "@types/node": "^22.15.21",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.5",
     "eslint": "^9.28.0",
     "eslint-config-next": "^15.3.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
+    "prettier": "^3.9.10",
     "tailwindcss": "^4.1.8",
     "typescript": "^5.8.3"
+  },
+  "lint-staged": {
+    "*.{js,jsx,mjs,cjs,ts,tsx}": [
+      "eslint --no-warn-ignored --max-warnings 0 --fix",
+      "prettier --write --ignore-unknown"
+    ],
+    "*.{json,css,scss,md,yml,yaml}": [
+      "prettier --write --ignore-unknown"
+    ]
   }
 }

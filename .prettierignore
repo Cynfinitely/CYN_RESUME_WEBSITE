@@ -1,0 +1,22 @@
+# Dependencies and lockfiles
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build and test output
+dist/
+build/
+.next/
+coverage/
+test-results/
+graphify-out/
+
+# Generated files (add repo-specific generated paths here)
+*.min.js
+*.min.css
+**/migrations/
+
+# Environment and logs
+.env*
+*.log

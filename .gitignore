@@ -21,3 +21,17 @@ yarn-error.log*
 
 # legacy cra app (removed after migration)
 /cyn_resume/node_modules
+
+# dev-standards
+dist/
+coverage/
+test-results/
+.env
+.env.*
+!.env.example
+*.log
+Thumbs.db
+.idea/
+.cursor/
+.claude/settings.local.json
+*.tsbuildinfo

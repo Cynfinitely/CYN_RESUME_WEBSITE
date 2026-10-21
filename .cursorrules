@@ -1,0 +1,7 @@
+# Cursor adapter
+
+Canonical text: `AGENTS.md` and `docs/agent-rules/`. Read them and follow them before editing.
+
+Hard stop: never add yourself (or any AI tool) as a co-author or "Generated with" footer in commit messages or PR descriptions (`docs/agent-rules/no-ai-attribution.md`).
+
+Hard stop: after changing tracked files, stage them and run `sh .husky/pre-commit` until it passes (`docs/agent-rules/pre-commit-hooks.md`).
