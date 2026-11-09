@@ -1,6 +1,6 @@
 # AGENTS.md — Workspace Facts
 
-<!-- dev-standards: v1.0.0 -->
+<!-- dev-standards: v1.1.0 -->
 
 Shared project knowledge for AI assistants. Commit this file.
 
@@ -22,6 +22,8 @@ Shared project knowledge for AI assistants. Commit this file.
 - Hooks: Husky (`.husky/`). Pre-commit = secret scan (gitleaks) + lint-staged. Commit-msg = AI attribution check + commitlint. Pre-push = `scripts/pre-push-check.sh`.
 - Pre-push runs `lint`, `typecheck`, `build`. Lite adoption: no Knip, npm-audit gate, or CI workflow (no PRs; commits go straight to `master`).
 
+- Issue workflow: `/issue <number>` in Claude Code (`.claude/commands/issue.md`) plans, waits for approval, then implements, commits, pushes, and opens the PR. Other agents: "follow `.claude/commands/issue.md` for issue N". It learns the repo from this file, so keep the PR base branch, branch naming, and run-the-app commands in _Learned Workspace Facts_.
+
 ## Learned Workspace Facts
 
 <!-- Repo-specific facts agents keep getting wrong: architecture, domain rules,
@@ -34,3 +36,5 @@ Shared project knowledge for AI assistants. Commit this file.
 - Styles: `app/globals.css` imports `app/styles/*.css` in order (tokens first, motion last). 1990s broadsheet theme; reuse tokens from `tokens.css`.
 - `lib/youtube.ts` reads the channel RSS feed, revalidated hourly.
 - Deployed on Vercel from the repo root; every push to `master` deploys.
+
+- **Run the app:** `npm run dev`, then open http://localhost:3000.
